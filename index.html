@@ -1,233 +1,293 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-  <title>The Becoming of a Father | NotebookLM Sourcebook Edition</title>
-  <meta name="description" content="Reflections on Love, Responsibility, and Legacy by Fortunat Bolangembe. An authored master archive." />
-  <meta name="theme-color" content="#050505" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+<title>Read — The Becoming of a Father</title>
+<meta name="description" content="Reflections on Love, Responsibility, and Legacy by Fortunat Bolangembe — sourcebook edition." />
+<meta name="theme-color" content="#1b2230" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            ibame: {
-              black: '#050505',
-              charcoal: '#0F0E13',
-              copper: '#B87333',
-              bone: '#F5F5F0',
-              grey: '#8A8A8A'
-            }
-          },
-          fontFamily: {
-            display: ['"Playfair Display"', 'serif'],
-            sans: ['Inter', 'sans-serif']
-          }
-        }
-      }
-    };
-  </script>
+<style>
+  :root{
+    --ink:#1b2230; --ink-deep:#11151e; --paper:#f3ead7; --paper-dim:#e7dcc2;
+    --rust:#b5562f; --moss:#5b6b4f; --gold:#c9a35d; --line: rgba(243,234,215,0.14);
+    --display:'Fraunces',serif; --body:'Source Serif 4',serif; --ui:'Inter',sans-serif;
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--ink); color:var(--paper); font-family:var(--body); -webkit-font-smoothing:antialiased;}
+  a{color:inherit;}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--gold); outline-offset:3px;}
+  .shell{max-width:var(--maxw); margin:0 auto; padding:0 1.5rem;}
+  .reading-container{max-width:65ch; margin:0 auto; padding:0 1.5rem;}
 
-  <style>
-    html { scroll-behavior: smooth; }
-    body {
-      background-color: #050505;
-      color: #F5F5F0;
-      -webkit-font-smoothing: antialiased;
-    }
-    .reading-container {
-      max-width: 65ch;
-      margin: 0 auto;
-    }
-    .chapter-text {
-      font-size: 1.125rem;
-      line-height: 1.85;
-      color: rgba(245, 245, 240, 0.88);
-      font-weight: 300;
-    }
-    .chapter-text p {
-      margin-bottom: 2rem;
-    }
-    .carved-rule {
-      height: 1px;
-      background: linear-gradient(90deg, transparent, #B87333 20%, #B87333 80%, transparent);
-      opacity: 0.3;
-      margin: 4rem auto;
-      max-width: 200px;
-    }
-    .reveal { opacity: 0; transform: translateY(20px); transition: all 0.8s cubic-bezier(0.22,1,0.36,1); }
-    .reveal.active { opacity: 1; transform: translateY(0); }
-    
-    /* Dark-theme optimized native audio controls */
-    audio {
-      filter: invert(0.9) hue-rotate(180deg);
-    }
-  </style>
+  header{position:sticky; top:0; z-index:40; background:linear-gradient(to bottom, rgba(17,21,30,0.96), rgba(17,21,30,0.86)); border-bottom:1px solid var(--line); backdrop-filter: blur(6px);}
+  .nav{display:flex; align-items:center; justify-content:space-between; padding:0.9rem 1.5rem; font-family:var(--ui);}
+  .brand{display:flex; align-items:center; gap:0.6rem; text-decoration:none; font-weight:600;}
+  .mark{width:30px;height:30px;border:1px solid var(--gold); border-radius:50%; display:flex;align-items:center;justify-content:center; font-family:var(--display); font-size:0.85rem; color:var(--gold);}
+  .navlinks{display:flex; gap:1.4rem; font-size:0.88rem;}
+  .navlinks a{text-decoration:none; color:var(--paper-dim);}
+  .navlinks a:hover{color:var(--paper);}
+  .navtoggle{display:none; background:none; border:1px solid var(--line); color:var(--paper); padding:0.4rem 0.6rem; border-radius:4px; font-family:var(--ui);}
+
+  @media (max-width:720px){
+    .navlinks{position:absolute; top:100%; left:0; right:0; flex-direction:column; gap:0; background:var(--ink-deep);
+      border-bottom:1px solid var(--line); max-height:0; overflow:hidden; transition:max-height .3s ease;}
+    .navlinks.open{max-height:320px;}
+    .navlinks a{padding:1rem 1.5rem; border-top:1px solid var(--line);}
+    .navtoggle{display:inline-block;}
+  }
+
+  .hero{padding:4.5rem 0 2.5rem; text-align:center;
+    background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(201,163,93,0.10), transparent);}
+  .kicker{font-family:var(--ui); letter-spacing:0.3em; text-transform:uppercase; font-size:0.7rem; color:var(--gold); margin-bottom:1rem;}
+  h1{font-family:var(--display); font-weight:700; font-size:clamp(2.2rem, 5vw, 3.6rem); line-height:1.08; margin:0 0 0.6rem;}
+  .subtitle{font-family:var(--display); font-style:italic; font-size:1.2rem; color:var(--paper-dim); margin:0;}
+  .author{font-family:var(--ui); letter-spacing:0.2em; text-transform:uppercase; font-size:0.72rem; color:var(--gold); margin-top:1.2rem;}
+
+  .carved-rule{height:1px; background:linear-gradient(90deg, transparent, var(--gold) 20%, var(--gold) 80%, transparent); opacity:0.4; margin:3.5rem auto; max-width:200px;}
+
+  .section-label{display:block; text-align:center;}
+  .eyebrow{font-family:var(--ui); letter-spacing:0.25em; text-transform:uppercase; font-size:0.7rem; color:var(--moss);}
+  h2{font-family:var(--display); font-weight:600; font-size:1.7rem; margin:0.3rem 0 0;}
+
+  .audio-section{padding:1rem 1.5rem 3rem; max-width:880px; margin:0 auto;}
+  .audio-card{
+    border:1px solid var(--line); border-radius:10px; padding:1.6rem;
+    background:rgba(255,255,255,0.02); margin-bottom:1.2rem;
+    display:flex; gap:1.4rem; align-items:flex-start; flex-wrap:wrap;
+  }
+  .audio-icon{
+    width:64px; height:64px; flex-shrink:0; border-radius:8px;
+    background:var(--ink-deep); border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--display); font-style:italic; font-size:1.7rem; color:var(--gold);
+  }
+  .audio-body{flex:1; min-width:200px;}
+  .track-label{font-family:var(--ui); font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); display:block; margin-bottom:0.2rem;}
+  .audio-body h3{font-family:var(--display); font-size:1.15rem; margin:0 0 0.3rem; color:var(--paper);}
+  .audio-body p{font-family:var(--ui); font-size:0.84rem; color:var(--paper-dim); margin:0 0 0.9rem; font-weight:400; line-height:1.5;}
+  audio{width:100%; filter:invert(0.9) hue-rotate(180deg);}
+  .audio-fallback{font-family:var(--ui); font-size:0.8rem; color:var(--rust); margin-top:0.5rem; display:none;}
+
+  .toc-box{max-width:680px; margin:0 auto; background:rgba(255,255,255,0.02); border:1px solid var(--line); border-radius:10px; padding:1.8rem 2rem;}
+  .toc-box h2{border-bottom:1px solid var(--line); padding-bottom:0.8rem; margin-bottom:1rem; font-size:1.2rem;}
+  .toc-box ul{list-style:none; margin:0; padding:0; font-family:var(--ui); font-size:0.92rem;}
+  .toc-box li{padding:0.6rem 0;}
+  .toc-box a{text-decoration:none; color:var(--paper-dim);}
+  .toc-box a:hover{color:var(--gold);}
+
+  main{padding:1rem 1.5rem 3rem;}
+  section.part{scroll-margin-top:6rem; margin-bottom:4rem;}
+  .part-head{max-width:65ch; margin:0 auto 2rem; border-bottom:1px solid var(--line); padding-bottom:1rem;}
+  .part-head .eyebrow{text-align:left;}
+  .part-head h2{text-align:left; margin-top:0.3rem;}
+
+  .chapter-text{font-size:1.08rem; line-height:1.85; color:var(--paper-dim); font-weight:400;}
+  .chapter-text p{margin-bottom:1.8rem;}
+  .pull-line{font-family:var(--display); font-style:italic; font-size:1.3rem; color:var(--gold); margin-bottom:1.6rem;}
+  .closing-line{font-family:var(--display); font-style:italic; font-size:1.15rem; text-align:center; color:var(--paper-dim); margin-top:2.5rem;}
+
+  .letter{padding-left:1.2rem; border-left:2px solid var(--rust); font-style:italic; color:var(--paper-dim); margin-bottom:2rem;}
+  .letter .to{font-family:var(--ui); font-style:normal; font-weight:600; color:var(--paper); display:block; margin-bottom:0.5rem; letter-spacing:0.02em;}
+
+  strong{color:var(--paper); font-weight:600;}
+
+  footer{border-top:1px solid var(--line); padding:3rem 0; text-align:center;}
+  footer .title{font-family:var(--display); font-style:italic; font-size:1.15rem; color:var(--paper);}
+  footer p{font-size:0.85rem; color:rgba(243,234,215,0.45); margin:0.3rem 0;}
+
+  .reveal{opacity:0; transform:translateY(16px); transition:all 0.7s cubic-bezier(.22,1,.36,1);}
+  .reveal.active{opacity:1; transform:translateY(0);}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .reveal{opacity:1; transform:none; transition:none;}
+  }
+</style>
 </head>
-<body class="font-sans antialiased selection:bg-ibame-copper selection:text-ibame-black">
+<body>
 
-  <nav class="sticky top-0 z-50 bg-ibame-black/95 backdrop-blur-md border-b border-ibame-charcoal px-6 py-4 flex items-center justify-between">
-    <div class="flex items-center gap-3">
-      <span class="font-display italic text-xl text-ibame-copper tracking-wide">IBAME Studio</span>
+<header>
+  <div class="nav">
+    <a class="brand" href="../index.html">
+      <span class="mark">FB</span>
+      <span>The Becoming of a Father</span>
+    </a>
+    <button class="navtoggle" id="navToggle" aria-expanded="false" aria-controls="navlinks">Menu</button>
+    <nav class="navlinks" id="navlinks">
+      <a href="../index.html">Home</a>
+      <a href="#audio">Audio</a>
+      <a href="#contents">Contents</a>
+      <a href="../letters/">Letters</a>
+      <a href="../download/">Download</a>
+    </nav>
+  </div>
+</header>
+
+<header class="hero">
+  <div class="reading-container">
+    <span class="kicker">Sourcebook Edition</span>
+    <h1>The Becoming of a Father</h1>
+    <p class="subtitle">Reflections on Love, Responsibility, and Legacy</p>
+    <p class="author">Fortunat Bolangembe</p>
+  </div>
+</header>
+
+<div class="carved-rule"></div>
+
+<section id="audio" class="audio-section">
+  <div class="section-label" style="margin-bottom:2rem;">
+    <span class="eyebrow">Studio Productions</span>
+    <h2>Audio Overviews</h2>
+  </div>
+
+  <div class="audio-card reveal">
+    <div class="audio-icon">I</div>
+    <div class="audio-body">
+      <span class="track-label">Track 01</span>
+      <h3>Deep-Dive Audio Presentation</h3>
+      <p>A comprehensive conceptual overview exploring identity transitions and the architecture of truth in fatherhood.</p>
+      <audio controls preload="none">
+        <source src="https://drive.google.com/uc?export=download&amp;id=12VxRoB3bBcNDKtP7isfnjnCfOzgQG7CJ" type="audio/mpeg">
+      </audio>
+      <p class="audio-fallback">If playback doesn't start, the audio file may need to be re-hosted — Google Drive links are unreliable for direct streaming.</p>
     </div>
-    <div class="hidden md:flex gap-6 text-xs uppercase tracking-widest text-ibame-grey">
-      <a href="#studio" class="hover:text-ibame-copper transition-colors">Studio Creations</a>
-      <a href="#contents" class="hover:text-ibame-copper transition-colors">Manuscript Archive</a>
+  </div>
+
+  <div class="audio-card reveal">
+    <div class="audio-icon" style="color:var(--moss);">II</div>
+    <div class="audio-body">
+      <span class="track-label">Track 02</span>
+      <h3>Manuscript &amp; Archive Synthesis</h3>
+      <p>A second studio session on the author's raw threads — letters to children and the parameters of generational legacy.</p>
+      <audio controls preload="none">
+        <source src="https://drive.google.com/uc?export=download&amp;id=1lJ-v-d2JOBTQBA6uhnvmodXmFQepnSEs" type="audio/mpeg">
+      </audio>
+      <p class="audio-fallback">If playback doesn't start, the audio file may need to be re-hosted — Google Drive links are unreliable for direct streaming.</p>
     </div>
-  </nav>
+  </div>
+</section>
 
-  <header class="px-6 pt-24 pb-16 text-center">
-    <div class="reading-container space-y-4">
-      <span class="block text-[11px] uppercase tracking-[0.35em] text-ibame-copper font-semibold">NotebookLM Sourcebook Hybrid</span>
-      <h1 class="font-display text-5xl md:text-7xl leading-tight text-ibame-bone">The Becoming of a Father</h1>
-      <p class="font-display italic text-xl md:text-2xl text-ibame-grey mt-2">Reflections on Love, Responsibility, and Legacy</p>
-      <p class="text-xs uppercase tracking-widest text-ibame-copper pt-4">Fortunat Bolangembe</p>
+<div class="carved-rule"></div>
+
+<nav id="contents" style="padding:0 1.5rem 1rem;">
+  <div class="toc-box">
+    <h2>Sourcebook Map</h2>
+    <ul>
+      <li><a href="#part-1">Part I — The Becoming Manuscript</a></li>
+      <li><a href="#part-2">Part II — Letters, Vows, and Fatherhood Language</a></li>
+      <li><a href="#part-3">Part III — Principles, Practices, and the Standing Father</a></li>
+      <li><a href="#part-4">Part IV — Shadow, Stoicism, Individuation, and the Inner War</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+
+  <section id="part-1" class="part">
+    <div class="part-head">
+      <span class="eyebrow">Part I</span>
+      <h2>The Becoming Manuscript</h2>
     </div>
-  </header>
-
-  <div class="carved-rule"></div>
-
-  <section id="studio" class="scroll-mt-24 px-4 md:px-10 py-12 md:py-16 max-w-4xl mx-auto space-y-6">
-    <div class="reveal mb-8 text-center md:text-left">
-      <span class="text-[11px] uppercase tracking-[0.35em] text-ibame-copper font-semibold">Studio Productions</span>
-      <h2 class="font-display text-3xl text-ibame-bone mt-1">NotebookLM Audio Overviews</h2>
-    </div>
-
-    <div class="reveal grain-card rounded-[2rem] p-6 md:p-8 border border-ibame-charcoal">
-      <div class="flex flex-col md:flex-row items-center gap-6">
-        <div class="w-24 h-24 shrink-0 bg-ibame-black rounded-xl overflow-hidden flex items-center justify-center border border-ibame-copper/10">
-          <span class="font-display italic text-4xl text-ibame-copper">I</span>
-        </div>
-        <div class="flex-grow space-y-3 text-center md:text-left w-full">
-          <div>
-            <span class="text-[9px] uppercase tracking-[0.25em] text-ibame-copper font-semibold block">Track 01</span>
-            <h3 class="font-display text-xl text-ibame-bone">Deep-Dive Audio Presentation</h3>
-            <p class="text-ibame-grey text-xs font-light mt-0.5">Comprehensive conceptual overview focusing on identity transitions and architectural elements of truth.</p>
-          </div>
-          <audio controls class="w-full max-w-xl focus:outline-none">
-            <source src="https://docs.google.com/uc?export=download&id=12VxRoB3bBcNDKtP7isfnjnCfOzgQG7CJ" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
-        </div>
-      </div>
-    </div>
-
-    <div class="reveal grain-card rounded-[2rem] p-6 md:p-8 border border-ibame-charcoal">
-      <div class="flex flex-col md:flex-row items-center gap-6">
-        <div class="w-24 h-24 shrink-0 bg-ibame-black rounded-xl overflow-hidden flex items-center justify-center border border-ibame-copper/10">
-          <span class="font-display italic text-4xl text-ibame-grey">II</span>
-        </div>
-        <div class="flex-grow space-y-3 text-center md:text-left w-full">
-          <div>
-            <span class="text-[9px] uppercase tracking-[0.25em] text-ibame-copper font-semibold block">Track 02</span>
-            <h3 class="font-display text-xl text-ibame-bone">Manuscript & Archive Synthesis</h3>
-            <p class="text-ibame-grey text-xs font-light mt-0.5">Secondary studio generation focusing on the raw author threads, letters to children, and generational legacy parameters.</p>
-          </div>
-          <audio controls class="w-full max-w-xl focus:outline-none">
-            <source src="https://docs.google.com/uc?export=download&id=1lJ-v-d2JOBTQBA6uhnvmodXmFQepnSEs" type="audio/mpeg">
-            Your browser does not support the audio element.
-          </audio>
-        </div>
-      </div>
+    <div class="chapter-text reading-container">
+      <p class="pull-line">"A father is not the man who creates life, but the one who chooses to stand for it."</p>
+      <p>Before my children were born, I believed I understood life. I thought strength meant independence and wisdom meant knowledge. Then they arrived, and love stopped being a concept. It became a responsibility carried in the body. The man I had been was not enough for what fatherhood required.</p>
+      <p>A father's essence is not perfection. It is presence. It is the willingness to remain morally available when life becomes difficult. It is constancy more than display. But a child learns fatherhood from something quieter: tone, rhythm, reliability, and the invisible architecture of safety.</p>
+      <p>If my pain had a shape, it would be a black hole: not only darkness, but a force dense enough to bend every thought around it. The danger of such pain is not only suffering; it is how easily suffering tries to become identity.</p>
     </div>
   </section>
 
-  <nav id="contents" class="px-6 py-4 scroll-mt-24">
-    <div class="reading-container bg-ibame-charcoal p-6 md:p-8 rounded-2xl border border-ibame-copper/10">
-      <h2 class="font-display text-xl text-ibame-bone mb-4 border-b border-ibame-copper/20 pb-2">Sourcebook Map</h2>
-      <ul class="space-y-3 font-sans font-light text-sm text-ibame-grey tracking-wide">
-        <li><a href="#part-1" class="hover:text-ibame-copper transition-colors">Part I — The Becoming Manuscript</a></li>
-        <li><a href="#part-2" class="hover:text-ibame-copper transition-colors">Part II — Letters, Vows, and Fatherhood Language</a></li>
-        <li><a href="#part-3" class="hover:text-ibame-copper transition-colors">Part III — Principles, Practices, and the Standing Father</a></li>
-        <li><a href="#part-4" class="hover:text-ibame-copper transition-colors">Part IV — Shadow, Stoicism, Individuation, and the Inner War</a></li>
-      </ul>
+  <div class="carved-rule"></div>
+
+  <section id="part-2" class="part">
+    <div class="part-head">
+      <span class="eyebrow">Part II</span>
+      <h2>Letters, Vows, and Fatherhood Language</h2>
     </div>
-  </nav>
-
-  <main class="px-6 py-12">
-    
-    <section id="part-1" class="scroll-mt-32 mb-20">
-      <div class="reading-container mb-8 border-b border-ibame-charcoal pb-4">
-        <span class="text-xs uppercase tracking-widest text-ibame-copper">Part I</span>
-        <h2 class="font-display text-3xl text-ibame-bone mt-1">The Becoming Manuscript</h2>
+    <div class="chapter-text reading-container">
+      <div class="letter">
+        <span class="to">To Selene (My Moon):</span>
+        "May you never confuse softness with weakness. May your discernment stay sharp without hardening your heart. The world may reward noise, but depth remains a rarer strength."
       </div>
-      <div class="chapter-text reading-container">
-        [span_1](start_span)<p class="font-display italic text-xl text-ibame-copper mb-6">"A father is not the man who creates life, but the one who chooses to stand for it."[span_1](end_span)</p>
-        [span_2](start_span)<p>Before my children were born, I believed I understood life[span_2](end_span). [span_3](start_span)I thought strength meant independence and wisdom meant knowledge[span_3](end_span). [span_4](start_span)Then they arrived, and love stopped being a concept[span_4](end_span). [span_5](start_span)It became a responsibility carried in the body[span_5](end_span). [span_6](start_span)The man I had been was not enough for what fatherhood required[span_6](end_span).</p>
-        <p>A father's essence is not perfection. [span_7](start_span)It is presence[span_7](end_span). [span_8](start_span)It is the willingness to remain morally available when life becomes difficult[span_8](end_span). [span_9](start_span)It is constancy more than display[span_9](end_span). [span_10](start_span)But a child learns fatherhood from something quieter: tone, rhythm, reliability, and the invisible architecture of safety[span_10](end_span).</p>
-        [span_11](start_span)<p>If my pain had a shape, it would be a black hole: not only darkness, but a force dense enough to bend every thought around it[span_11](end_span). [span_12](start_span)The danger of such pain is not only suffering; it is how easily suffering tries to become identity[span_12](end_span).</p>
+      <div class="letter">
+        <span class="to">To Phoenix (My Fire):</span>
+        "May you understand early that self-control is greater than force. Muscles may command attention, but character determines destiny. Protect what is weaker than you, including tenderness."
       </div>
-    </section>
+      <p>A father cannot control the whole road his children will walk. He can only try to send them into the world carrying more honesty than fear, more integrity than confusion, and more self-respect than dependence. Legacy is not ownership. It is stewardship.</p>
+    </div>
+  </section>
 
-    <div class="carved-rule"></div>
+  <div class="carved-rule"></div>
 
-    <section id="part-2" class="scroll-mt-32 mb-20">
-      <div class="reading-container mb-8 border-b border-ibame-charcoal pb-4">
-        <span class="text-xs uppercase tracking-widest text-ibame-copper">Part II</span>
-        <h2 class="font-display text-3xl text-ibame-bone mt-1">Letters, Vows, and Fatherhood Language</h2>
-      </div>
-      <div class="chapter-text reading-container space-y-8">
-        <div class="pl-4 border-l border-ibame-copper/40 italic text-ibame-grey">
-          <p class="font-semibold text-ibame-bone not-italic mb-2">To Selene (My Moon):</p>
-          [span_13](start_span)"May you never confuse softness with weakness[span_13](end_span). [span_14](start_span)May your discernment stay sharp without hardening your heart[span_14](end_span). [span_15](start_span)The world may reward noise, but depth remains a rarer strength."[span_15](end_span)
-        </div>
-        <div class="pl-4 border-l border-ibame-copper/40 italic text-ibame-grey">
-          <p class="font-semibold text-ibame-bone not-italic mb-2">To Phoenix (My Fire):</p>
-          [span_16](start_span)"May you understand early that self-control is greater than force[span_16](end_span). [span_17](start_span)Muscles may command attention, but character determines destiny[span_17](end_span). [span_18](start_span)Protect what is weaker than you, including tenderness."[span_18](end_span)
-        </div>
-        [span_19](start_span)<p>A father cannot control the whole road his children will walk[span_19](end_span). [span_20](start_span)He can only try to send them into the world carrying more honesty than fear, more integrity than confusion, and more self-respect than dependence[span_20](end_span). Legacy is not ownership. [span_21](start_span)It is stewardship[span_21](end_span).</p>
-      </div>
-    </section>
+  <section id="part-3" class="part">
+    <div class="part-head">
+      <span class="eyebrow">Part III</span>
+      <h2>Principles, Practices, and the Standing Father</h2>
+    </div>
+    <div class="chapter-text reading-container">
+      <p><strong>Character Before Image:</strong> A stable life cannot be built on image. Image depends on witnesses. Character remains when the room is empty. A father learns not only by insight but by rehearsal — through ordinary choices, corrected habits, and the refusal to hand chaos to the next generation.</p>
+      <p><strong>Integrity as Alignment:</strong> Integrity is when thought, speech, and action are close enough that a child can trust the pattern.</p>
+      <p><strong>Loyalty Without Blindness:</strong> Loyalty is not slavery. A father must know the difference between patience and self-erasure. The patience a person offers should never be mistaken for permission to wound them indefinitely.</p>
+    </div>
+  </section>
 
-    <div class="carved-rule"></div>
+  <div class="carved-rule"></div>
 
-    <section id="part-3" class="scroll-mt-32 mb-20">
-      <div class="reading-container mb-8 border-b border-ibame-charcoal pb-4">
-        <span class="text-xs uppercase tracking-widest text-ibame-copper">Part III</span>
-        <h2 class="font-display text-3xl text-ibame-bone mt-1">Principles, Practices, and the Standing Father</h2>
-      </div>
-      <div class="chapter-text reading-container">
-        [span_22](start_span)<p><strong>Character Before Image:</strong> A stable life cannot be built on image[span_22](end_span). [span_23](start_span)Image depends on witnesses[span_23](end_span). [span_24](start_span)Character remains when the room is empty[span_24](end_span). [span_25](start_span)A father learns not only by insight but by rehearsal—through ordinary choices, corrected habits, and the refusal to hand chaos to the next generation[span_25](end_span).</p>
-        [span_26](start_span)<p><strong>Integrity as Alignment:</strong> Integrity is when thought, speech, and action are close enough that a child can trust the pattern[span_26](end_span).</p>
-        [span_27](start_span)<p><strong>Loyalty Without Blindness:</strong> Loyalty is not slavery[span_27](end_span). [span_28](start_span)A father must know the difference between patience and self-erasure[span_28](end_span). [span_29](start_span)The patience a person offers should never be mistaken for permission to wound them indefinitely[span_29](end_span).</p>
-      </div>
-    </section>
+  <section id="part-4" class="part">
+    <div class="part-head">
+      <span class="eyebrow">Part IV</span>
+      <h2>Shadow, Stoicism, Individuation, and the Inner War</h2>
+    </div>
+    <div class="chapter-text reading-container">
+      <p>The shadow is not the enemy. It is the unadmitted part of the self that keeps trying to govern from below. In fatherhood, unexamined shadow becomes inherited atmosphere. To become a father in the fullest sense is not only to care for children; it is to refine the instrument through which care reaches them.</p>
+      <p>Stoicism is not emotional numbness. It is the discipline of distinguishing what can be governed from what cannot, so energy is not wasted on panic or theater. Realization kills illusion. It does not ask permission; it simply removes the lies emotion preferred to keep alive.</p>
+      <p class="closing-line">"Children do not belong to us. They pass through us. Our role is simple: protect them, guide them, love them, and leave the world better than we found it."</p>
+    </div>
+  </section>
 
-    <div class="carved-rule"></div>
+</main>
 
-    <section id="part-4" class="scroll-mt-32 mb-20">
-      <div class="reading-container mb-8 border-b border-ibame-charcoal pb-4">
-        <span class="text-xs uppercase tracking-widest text-ibame-copper">Part IV</span>
-        <h2 class="font-display text-3xl text-ibame-bone mt-1">Shadow, Stoicism, Individuation, and the Inner War</h2>
-      </div>
-      <div class="chapter-text reading-container">
-        [span_30](start_span)<p>The shadow is not the enemy[span_30](end_span). [span_31](start_span)It is the unadmitted part of the self that keeps trying to govern from below[span_31](end_span). [span_32](start_span)In fatherhood, unexamined shadow becomes inherited atmosphere[span_32](end_span). [span_33](start_span)To become a father in the fullest sense is not only to care for children; it is to refine the instrument through which care reaches them[span_33](end_span).</p>
-        [span_34](start_span)<p>Stoicism is not emotional numbness[span_34](end_span). [span_35](start_span)It is the discipline of distinguishing what can be governed from what cannot, so energy is not wasted on panic or theater[span_35](end_span). [span_36](start_span)Realization kills illusion[span_36](end_span). [span_37](start_span)It does not ask permission; it simply removes the lies emotion preferred to keep alive[span_37](end_span).</p>
-        [span_38](start_span)<p class="font-display italic text-lg text-center text-ibame-grey mt-10">"Children do not belong to us. They pass through us. Our role is simple: protect them, guide them, love them, and leave the world better than we found it."[span_38](end_span)</p>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="border-t border-ibame-charcoal px-6 py-12 text-center space-y-2 text-xs font-light text-ibame-grey">
-    <p class="font-display italic text-lg text-ibame-bone tracking-wider">The Becoming of a Father</p>
+<footer>
+  <div class="shell">
+    <p class="title">The Becoming of a Father</p>
     <p>Montréal · BCA Inc.</p>
-    <p class="text-[10px] tracking-widest text-ibame-copper uppercase pt-2">© All Rights Reserved</p>
-  </footer>
+    <p>© <span id="year"></span> Fortunat Bolangembe · All Rights Reserved</p>
+  </div>
+</footer>
 
-  <script>
-    (() => {
-      'use strict';
-      const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
-      }, { threshold: 0.1 });
-      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    })();
-  </script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const toggle = document.getElementById('navToggle');
+  const links = document.getElementById('navlinks');
+  toggle.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+
+  (() => {
+    'use strict';
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion) {
+      document.querySelectorAll('.reveal').forEach(el => el.classList.add('active'));
+      return;
+    }
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  })();
+
+  document.querySelectorAll('audio').forEach(el => {
+    el.addEventListener('error', () => {
+      const fallback = el.parentElement.querySelector('.audio-fallback');
+      if (fallback) fallback.style.display = 'block';
+    });
+  });
+</script>
 </body>
 </html>
