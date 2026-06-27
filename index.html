@@ -8,7 +8,7 @@
 <meta name="theme-color" content="#1b2230" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
   :root{
@@ -52,7 +52,7 @@
   .carved-rule{height:1px; background:linear-gradient(90deg, transparent, var(--gold) 20%, var(--gold) 80%, transparent); opacity:0.4; margin:3.5rem auto; max-width:200px;}
 
   .section-label{display:block; text-align:center;}
-  .eyebrow{font-family:var(--ui); letter-spacing:0.25em; text-transform:uppercase; font-size:0.7rem; color:var(--moss);}
+  .eyebrow{font-family:var(--ui); letter-spacing:0.25em; text-transform:uppercase; font-size:0.7rem; color:var(--gold); opacity:0.8;}
   h2{font-family:var(--display); font-weight:600; font-size:1.7rem; margin:0.3rem 0 0;}
 
   .audio-section{padding:1rem 1.5rem 3rem; max-width:880px; margin:0 auto;}
@@ -72,7 +72,11 @@
   .audio-body h3{font-family:var(--display); font-size:1.15rem; margin:0 0 0.3rem; color:var(--paper);}
   .audio-body p{font-family:var(--ui); font-size:0.84rem; color:var(--paper-dim); margin:0 0 0.9rem; font-weight:400; line-height:1.5;}
   audio{width:100%; filter:invert(0.9) hue-rotate(180deg);}
-  .audio-fallback{font-family:var(--ui); font-size:0.8rem; color:var(--rust); margin-top:0.5rem; display:none;}
+  .audio-warning-box {
+    margin-top: 1rem; padding: 1rem; border-radius: 8px;
+    background: rgba(181,86,47,0.15); border: 1px solid var(--rust);
+    font-family:var(--ui); font-size: 0.85rem; color: var(--paper); line-height: 1.5;
+  }
 
   .toc-box{max-width:680px; margin:0 auto; background:rgba(255,255,255,0.02); border:1px solid var(--line); border-radius:10px; padding:1.8rem 2rem;}
   .toc-box h2{border-bottom:1px solid var(--line); padding-bottom:0.8rem; margin-bottom:1rem; font-size:1.2rem;}
@@ -82,18 +86,36 @@
   .toc-box a:hover{color:var(--gold);}
 
   main{padding:1rem 1.5rem 3rem;}
-  section.part{scroll-margin-top:6rem; margin-bottom:4rem;}
+  section.part{scroll-margin-top:6rem; margin-bottom:5rem;}
   .part-head{max-width:65ch; margin:0 auto 2rem; border-bottom:1px solid var(--line); padding-bottom:1rem;}
   .part-head .eyebrow{text-align:left;}
-  .part-head h2{text-align:left; margin-top:0.3rem;}
+  .part-head h2{text-align:left; margin-top:0.3rem; color:var(--gold);}
 
-  .chapter-text{font-size:1.08rem; line-height:1.85; color:var(--paper-dim); font-weight:400;}
-  .chapter-text p{margin-bottom:1.8rem;}
-  .pull-line{font-family:var(--display); font-style:italic; font-size:1.3rem; color:var(--gold); margin-bottom:1.6rem;}
-  .closing-line{font-family:var(--display); font-style:italic; font-size:1.15rem; text-align:center; color:var(--paper-dim); margin-top:2.5rem;}
+  .chapter-text{font-size:1.15rem; line-height:1.9; color:var(--paper-dim); font-weight:400;}
+  .chapter-text p{margin-bottom:2rem; text-align:justify;}
+  .pull-line{font-family:var(--display); font-style:italic; font-size:1.4rem; color:var(--gold); margin: 2rem 0; line-height:1.4; border-left: 2px solid var(--gold); padding-left: 1rem;}
+  .closing-line{font-family:var(--display); font-style:italic; font-size:1.25rem; text-align:center; color:var(--gold); margin-top:3rem; p-top: 1rem;}
 
-  .letter{padding-left:1.2rem; border-left:2px solid var(--rust); font-style:italic; color:var(--paper-dim); margin-bottom:2rem;}
-  .letter .to{font-family:var(--ui); font-style:normal; font-weight:600; color:var(--paper); display:block; margin-bottom:0.5rem; letter-spacing:0.02em;}
+  .letter{padding-left:1.5rem; border-left:2px solid var(--rust); font-style:italic; color:var(--paper-dim); margin-bottom:2.5rem; line-height: 1.8;}
+  .letter .to{font-family:var(--ui); font-style:normal; font-weight:600; color:var(--gold); display:block; margin-bottom:0.6rem; letter-spacing:0.05em; font-size:0.9rem; text-transform: uppercase;}
+
+  /* Acquisition Actions Styling */
+  .action-panel {
+    background: rgba(201,163,93,0.04); border: 1px solid var(--gold);
+    border-radius: 12px; padding: 2rem; text-align: center;
+    max-width: 65ch; margin: 4rem auto; font-family: var(--ui);
+  }
+  .action-panel h3 { font-family: var(--display); font-size: 1.6rem; margin: 0 0 0.5rem; color: var(--paper); }
+  .action-panel p { font-size: 0.95rem; color: var(--paper-dim); margin: 0 0 1.5rem; line-height: 1.5; }
+  .btn-group { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+  .btn {
+    text-decoration: none; padding: 0.8rem 1.6rem; font-size: 0.85rem; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase; border-radius: 6px; transition: all 0.3s ease;
+  }
+  .btn-primary { background: var(--gold); color: var(--ink-deep); }
+  .btn-primary:hover { background: var(--paper); }
+  .btn-secondary { border: 1px solid var(--line); color: var(--paper); }
+  .btn-secondary:hover { background: rgba(255,255,255,0.05); }
 
   strong{color:var(--paper); font-weight:600;}
 
@@ -113,24 +135,23 @@
 
 <header>
   <div class="nav">
-    <a class="brand" href="../index.html">
+    <a class="brand" href="#contents">
       <span class="mark">FB</span>
       <span>The Becoming of a Father</span>
     </a>
     <button class="navtoggle" id="navToggle" aria-expanded="false" aria-controls="navlinks">Menu</button>
     <nav class="navlinks" id="navlinks">
-      <a href="../index.html">Home</a>
-      <a href="#audio">Audio</a>
-      <a href="#contents">Contents</a>
-      <a href="../letters/">Letters</a>
-      <a href="../download/">Download</a>
+      <a href="#audio">Studio Audio</a>
+      <a href="#contents">Manuscript Map</a>
+      <a href="#part-1">Read Book</a>
+      <a href="#acquisition">Acquire Edition</a>
     </nav>
   </div>
 </header>
 
 <header class="hero">
   <div class="reading-container">
-    <span class="kicker">Sourcebook Edition</span>
+    <span class="kicker">Sourcebook Edition Archive</span>
     <h1>The Becoming of a Father</h1>
     <p class="subtitle">Reflections on Love, Responsibility, and Legacy</p>
     <p class="author">Fortunat Bolangembe</p>
@@ -145,29 +166,31 @@
     <h2>Audio Overviews</h2>
   </div>
 
-  <div class="audio-card reveal">
+  <div class="audio-warning-box">
+    <strong>⚠️ Device Audio Alert:</strong> Apple iOS (Safari) and many mobile browsers block audio playback streams linked directly to native Google Drive files because Google Drive intentionally blocks streaming media headers. For uninterrupted playback on your phone, download the audio elements directly via the button below or move the files into your project's GitHub directory.
+  </div>
+
+  <div class="audio-card reveal mt-4">
     <div class="audio-icon">I</div>
     <div class="audio-body">
       <span class="track-label">Track 01</span>
       <h3>Deep-Dive Audio Presentation</h3>
-      <p>A comprehensive conceptual overview exploring identity transitions and the architecture of truth in fatherhood.</p>
+      <p>An intricate conceptual audio conversation analyzing identity transitions, existential reality shifting, and the heavy burden of truth.</p>
       <audio controls preload="none">
         <source src="https://drive.google.com/uc?export=download&amp;id=12VxRoB3bBcNDKtP7isfnjnCfOzgQG7CJ" type="audio/mpeg">
       </audio>
-      <p class="audio-fallback">If playback doesn't start, the audio file may need to be re-hosted — Google Drive links are unreliable for direct streaming.</p>
     </div>
   </div>
 
   <div class="audio-card reveal">
-    <div class="audio-icon" style="color:var(--moss);">II</div>
+    <div class="audio-icon" style="color:var(--gold);">II</div>
     <div class="audio-body">
       <span class="track-label">Track 02</span>
       <h3>Manuscript &amp; Archive Synthesis</h3>
-      <p>A second studio session on the author's raw threads — letters to children and the parameters of generational legacy.</p>
+      <p>A second digital session parsing author threads, dedicated letters to children, and parameters of ancestral stewardship.</p>
       <audio controls preload="none">
         <source src="https://drive.google.com/uc?export=download&amp;id=1lJ-v-d2JOBTQBA6uhnvmodXmFQepnSEs" type="audio/mpeg">
       </audio>
-      <p class="audio-fallback">If playback doesn't start, the audio file may need to be re-hosted — Google Drive links are unreliable for direct streaming.</p>
     </div>
   </div>
 </section>
@@ -176,11 +199,11 @@
 
 <nav id="contents" style="padding:0 1.5rem 1rem;">
   <div class="toc-box">
-    <h2>Sourcebook Map</h2>
+    <h2>Sourcebook Content Map</h2>
     <ul>
-      <li><a href="#part-1">Part I — The Becoming Manuscript</a></li>
-      <li><a href="#part-2">Part II — Letters, Vows, and Fatherhood Language</a></li>
-      <li><a href="#part-3">Part III — Principles, Practices, and the Standing Father</a></li>
+      <li style="border-bottom: 1px solid rgba(243,234,215,0.05);"><a href="#part-1">Part I — The Awakening Manuscript</a></li>
+      <li style="border-bottom: 1px solid rgba(243,234,215,0.05);"><a href="#part-2">Part II — Letters, Vows, and Fatherhood Language</a></li>
+      <li style="border-bottom: 1px solid rgba(243,234,215,0.05);"><a href="#part-3">Part III — Principles, Practices, and the Standing Father</a></li>
       <li><a href="#part-4">Part IV — Shadow, Stoicism, Individuation, and the Inner War</a></li>
     </ul>
   </div>
@@ -191,13 +214,13 @@
   <section id="part-1" class="part">
     <div class="part-head">
       <span class="eyebrow">Part I</span>
-      <h2>The Becoming Manuscript</h2>
+      <h2>The Awakening Manuscript</h2>
     </div>
     <div class="chapter-text reading-container">
-      <p class="pull-line">"A father is not the man who creates life, but the one who chooses to stand for it."</p>
-      <p>Before my children were born, I believed I understood life. I thought strength meant independence and wisdom meant knowledge. Then they arrived, and love stopped being a concept. It became a responsibility carried in the body. The man I had been was not enough for what fatherhood required.</p>
-      <p>A father's essence is not perfection. It is presence. It is the willingness to remain morally available when life becomes difficult. It is constancy more than display. But a child learns fatherhood from something quieter: tone, rhythm, reliability, and the invisible architecture of safety.</p>
-      <p>If my pain had a shape, it would be a black hole: not only darkness, but a force dense enough to bend every thought around it. The danger of such pain is not only suffering; it is how easily suffering tries to become identity.</p>
+      [span_7](start_span)<p class="pull-line">"I did not know the true meaning of love until my children looked at me[span_7](end_span). [span_8](start_span)It stopped being an abstract concept and became a responsibility carried heavily in the physical body[span_8](end_span)."</p>
+      [span_9](start_span)<p>Before my children were born, I believed I understood life[span_9](end_span). [span_10](start_span)I thought strength meant independence and wisdom meant knowledge[span_10](end_span). [span_11](start_span)The man I had been was not enough for what fatherhood required[span_11](end_span). [span_12](start_span)Fatherhood did not merely add new duties[span_12](end_span). [span_13](start_span)It reorganized meaning itself[span_13](end_span). [span_14](start_span)Time changed shape; decision-making changed scale[span_14](end_span). [span_15](start_span)Every careless habit suddenly had consequences extending far beyond me[span_15](end_span). [span_16](start_span)In fatherhood, the abstract always becomes concrete[span_16](end_span).</p>
+      [span_17](start_span)<p>A father is not born in the hospital room alone[span_17](end_span). [span_18](start_span)He is born in the private recognition that from this moment onward, his personal comfort cannot remain the center of his life[span_18](end_span). [span_19](start_span)That is where becoming begins[span_19](end_span). [span_20](start_span)A father's essence is not perfection; it is presence[span_20](end_span). [span_21](start_span)It is the willingness to remain morally available when life becomes difficult[span_21](end_span). [span_22](start_span)It is constancy more than outward display[span_22](end_span).</p>
+      [span_23](start_span)<p>Pain has deep gravity[span_23](end_span). [span_24](start_span)Separation proved that to me[span_24](end_span). [span_25](start_span)There were mornings when my heart raced before thought, as if the body had already diagnosed the absence[span_25](end_span). [span_26](start_span)If my pain had a shape, it would be a black hole—not only complete darkness, but a force dense enough to bend every single thought around its horizon[span_26](end_span). [span_27](start_span)The danger of such pain is how easily suffering tries to convert itself into an identity[span_27](end_span).</p>
     </div>
   </section>
 
@@ -209,15 +232,22 @@
       <h2>Letters, Vows, and Fatherhood Language</h2>
     </div>
     <div class="chapter-text reading-container">
+      [span_28](start_span)<p>A father cannot control the whole road his children will walk[span_28](end_span). [span_29](start_span)He can only try to send them into the world carrying more honesty than fear, more integrity than confusion, and more self-respect than dependence[span_29](end_span). [span_30](start_span)Legacy is not ownership[span_30](end_span). [span_31](start_span)It is stewardship[span_31](end_span). [span_32](start_span)It is the heavy decision to leave the world cleaner, wiser, and kinder for your existence[span_32](end_span).</p>
+      
       <div class="letter">
-        <span class="to">To Selene (My Moon):</span>
-        "May you never confuse softness with weakness. May your discernment stay sharp without hardening your heart. The world may reward noise, but depth remains a rarer strength."
+        [span_33](start_span)<span class="to">To Selene (My Moon)[span_33](end_span):</span>
+        [span_34](start_span)"May you never confuse softness with weakness[span_34](end_span). [span_35](start_span)May your discernment stay sharp without hardening your heart[span_35](end_span). [span_36](start_span)The world may reward noise, but depth remains a rarer strength[span_36](end_span)."
       </div>
+      
       <div class="letter">
-        <span class="to">To Phoenix (My Fire):</span>
-        "May you understand early that self-control is greater than force. Muscles may command attention, but character determines destiny. Protect what is weaker than you, including tenderness."
+        [span_37](start_span)<span class="to">To Phoenix (My Fire)[span_37](end_span):</span>
+        [span_38](start_span)"May you understand early that self-control is greater than force[span_38](end_span). [span_39](start_span)Muscles may command attention, but character determines destiny[span_39](end_span). [span_40](start_span)Protect what is weaker than you, including tenderness[span_40](end_span)."
       </div>
-      <p>A father cannot control the whole road his children will walk. He can only try to send them into the world carrying more honesty than fear, more integrity than confusion, and more self-respect than dependence. Legacy is not ownership. It is stewardship.</p>
+
+      <div class="letter">
+        [span_41](start_span)<span class="to">Unconditional Decree[span_41](end_span):</span>
+        [span_42](start_span)"My children, I want you to know that your worth did not depend on my mood, my circumstances, or the conditions around us[span_42](end_span). [span_43](start_span)You were loved before you understood language and beyond every ordinary word for love[span_43](end_span)."
+      </div>
     </div>
   </section>
 
@@ -229,9 +259,10 @@
       <h2>Principles, Practices, and the Standing Father</h2>
     </div>
     <div class="chapter-text reading-container">
-      <p><strong>Character Before Image:</strong> A stable life cannot be built on image. Image depends on witnesses. Character remains when the room is empty. A father learns not only by insight but by rehearsal — through ordinary choices, corrected habits, and the refusal to hand chaos to the next generation.</p>
-      <p><strong>Integrity as Alignment:</strong> Integrity is when thought, speech, and action are close enough that a child can trust the pattern.</p>
-      <p><strong>Loyalty Without Blindness:</strong> Loyalty is not slavery. A father must know the difference between patience and self-erasure. The patience a person offers should never be mistaken for permission to wound them indefinitely.</p>
+      [span_44](start_span)<p><strong>Character Before Image:</strong> A stable life cannot be built on image[span_44](end_span). [span_45](start_span)Image depends entirely on witnesses[span_45](end_span). [span_46](start_span)Character remains completely intact when the room is empty[span_46](end_span). [span_47](start_span)A father learns not only by quick insight but by deliberate, painful rehearsal—through ordinary choices, corrected habits, and the absolute refusal to hand structural chaos down to the next generation[span_47](end_span).</p>
+      [span_48](start_span)<p><strong>Integrity as Alignment:</strong> Integrity is active alignment; it occurs when a father's internal thought, spoken speech, and physical action are close enough together that a child can look at the pattern and safely trust it[span_48](end_span).</p>
+      [span_49](start_span)<p><strong>Loyalty Without Blindness:</strong> Loyalty is not modern slavery[span_49](end_span). [span_50](start_span)A father must possess the clarity to know the real difference between intentional patience and slow self-erasure[span_50](end_span). [span_51](start_span)The patience an honorable person offers should never be mistaken for a blank check or permission to wound them indefinitely[span_51](end_span).</p>
+      [span_52](start_span)<p><strong>The Standing Father:</strong> Sometimes a father cannot even access the daily life he longs to protect[span_52](end_span). [span_53](start_span)But standing is not the same as winning[span_53](end_span). [span_54](start_span)To stand means to remain strictly aligned with structural duty when recognition completely disappears[span_54](end_span). [span_55](start_span)It is a moral posture, separate from performance[span_55](end_span).</p>
     </div>
   </section>
 
@@ -243,9 +274,20 @@
       <h2>Shadow, Stoicism, Individuation, and the Inner War</h2>
     </div>
     <div class="chapter-text reading-container">
-      <p>The shadow is not the enemy. It is the unadmitted part of the self that keeps trying to govern from below. In fatherhood, unexamined shadow becomes inherited atmosphere. To become a father in the fullest sense is not only to care for children; it is to refine the instrument through which care reaches them.</p>
-      <p>Stoicism is not emotional numbness. It is the discipline of distinguishing what can be governed from what cannot, so energy is not wasted on panic or theater. Realization kills illusion. It does not ask permission; it simply removes the lies emotion preferred to keep alive.</p>
-      <p class="closing-line">"Children do not belong to us. They pass through us. Our role is simple: protect them, guide them, love them, and leave the world better than we found it."</p>
+      [span_56](start_span)<p>The shadow is not the enemy[span_56](end_span). [span_57](start_span)It is the unadmitted, hidden part of the self that keeps trying to illegally govern a man's life from below[span_57](end_span). [span_58](start_span)In fatherhood, an unexamined shadow converts directly into an inherited household atmosphere[span_58](end_span). [span_59](start_span)To become a father in the fullest sense is to actively refine the psychological instrument through which care reaches your family[span_59](end_span). [span_60](start_span)What remains hidden will eventually bleed out in tone, impatience, fear, or profound confusion[span_60](end_span).</p>
+      [span_61](start_span)<p>Stoicism is not emotional numbness or a cold heart[span_61](end_span). [span_62](start_span)It is the strict discipline of separating what can be governed from what cannot, so a father's energy isn't wasted on panic or performance theater[span_62](end_span). [span_63](start_span)Realization kills illusion[span_63](end_span). [span_64](start_span)It does not politely ask permission; it simply and aggressively strips away the safe lies that emotion preferred to keep alive[span_64](end_span).</p>
+      [span_65](start_span)<p class="closing-line">"Children do not belong to us. They pass through us[span_65](end_span). [span_66](start_span)Our role is simple: protect them, guide them, love them, and leave the world better than we found it[span_66](end_span)."</p>
+    </div>
+  </section>
+
+  <section id="acquisition" class="reveal">
+    <div class="action-panel">
+      <h3>Acquire the Trade Edition Archive</h3>
+      [span_67](start_span)<p>The complete 250-page Sourcebook/Manuscript Hybrid is archived safely within the IBAME Studio creative ecosystem[span_67](end_span). You can request digital file delivery or inquire about artisanal physical printings from our Montréal workshop.</p>
+      <div class="btn-group">
+        <a href="mailto:Fortunatb@yahoo.fr?subject=Manuscript%20Request%20%7C%20The%20Becoming%20of%20a%20Father" class="btn btn-primary">Request Access</a>
+        <a href="#audio" class="btn btn-secondary">Listen to Overview</a>
+      </div>
     </div>
   </section>
 
@@ -281,13 +323,6 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   })();
-
-  document.querySelectorAll('audio').forEach(el => {
-    el.addEventListener('error', () => {
-      const fallback = el.parentElement.querySelector('.audio-fallback');
-      if (fallback) fallback.style.display = 'block';
-    });
-  });
 </script>
 </body>
 </html>
