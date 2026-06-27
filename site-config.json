@@ -1,0 +1,6 @@
+{
+  "paperbackLink": "#",
+  "ebookLink": "#",
+  "newsletterAction": "https://formspree.io/f/your-form-id",
+  "newsletterNote": "Replace newsletterAction with your real endpoint."
+}
