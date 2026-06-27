@@ -76,7 +76,7 @@
       <span class="font-display italic text-xl text-ibame-copper tracking-wide">IBAME Studio</span>
     </div>
     <div class="hidden md:flex gap-6 text-xs uppercase tracking-widest text-ibame-grey">
-      <a href="#studio" class="hover:text-ibame-copper transition-colors">Studio Creation</a>
+      <a href="#studio" class="hover:text-ibame-copper transition-colors">Studio Creations</a>
       <a href="#contents" class="hover:text-ibame-copper transition-colors">Manuscript</a>
     </div>
   </nav>
@@ -90,89 +90,93 @@
     </div>
   </header>
 
-  <section id="studio" class="px-6 py-8 max-w-3xl mx-auto reveal">
-    <div class="bg-ibame-charcoal border border-ibame-copper/30 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center gap-6 shadow-2xl">
-      
-      <div class="h-16 w-16 bg-ibame-black border border-ibame-copper/20 rounded-xl flex items-center justify-center shrink-0">
-        <span class="font-display italic text-3xl text-ibame-copper">SL</span>
-      </div>
-      
-      <div class="flex-grow text-center md:text-left">
-        <span class="text-[10px] uppercase tracking-[0.25em] text-ibame-copper font-semibold block mb-1">NotebookLM Generated</span>
-        <h3 class="font-display text-xl text-ibame-bone font-medium">Deep-Dive Audio Overview</h3>
-        <p class="text-ibame-grey text-sm font-light mt-1">An immersive Studio creation expanding on the architecture of reality, identity shifts, and the weight of truth behind fatherhood.</p>
-      </div>
-      
-      <div class="w-full md:w-auto shrink-0 pt-2 md:pt-0">
-        <audio controls class="w-full">
-          <source src="./audio-deepdive.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
-      </div>
-
-    </div>
-  </section>
-
   <div class="carved-rule"></div>
 
-  <section id="contents" class="px-6 py-6 scroll-mt-24">
-    <div class="reading-container bg-ibame-charcoal/50 p-6 md:p-10 rounded-2xl border border-ibame-charcoal">
-      <h2 class="font-display text-xl text-ibame-bone mb-6 border-b border-ibame-copper/20 pb-3">Sourcebook Structure</h2>
-      <ul class="space-y-3 text-sm font-light text-ibame-grey tracking-wide">
-        <li><a href="#part-1" class="hover:text-ibame-copper transition-colors">Part I — The Awakening Manuscript</a></li>
-        <li><a href="#part-2" class="hover:text-ibame-copper transition-colors">Part II — Letters, Vows, and Legacy</a></li>
-      </ul>
+  <section id="studio" class="scroll-mt-24 px-4 md:px-10 py-12 md:py-16 max-w-4xl mx-auto space-y-6">
+    <div class="reveal mb-8 text-center md:text-left">
+      <span class="text-[11px] uppercase tracking-[0.35em] text-ibame-copper font-semibold">Studio Productions</span>
+      <h2 class="font-display text-3xl text-ibame-bone mt-1">NotebookLM Audio Overviews</h2>
+    </div>
+
+    <div class="reveal grain-card rounded-[2rem] p-6 md:p-8 border border-ibame-charcoal">
+      <div class="flex flex-col md:flex-row items-center gap-6">
+        <div class="w-32 h-32 shrink-0 bg-ibame-black rounded-xl overflow-hidden flex items-center justify-center border border-ibame-copper/10">
+          <span class="font-display italic text-4xl text-ibame-copper">I</span>
+        </div>
+        <div class="flex-grow space-y-3 text-center md:text-left w-full">
+          <div>
+            <span class="text-[9px] uppercase tracking-[0.25em] text-ibame-copper font-semibold block">Track 01</span>
+            <h3 class="font-display text-xl text-ibame-bone">Deep-Dive Audio Presentation</h3>
+            <p class="text-ibame-grey text-xs font-light mt-0.5">Comprehensive conceptual overview focusing on identity transitions and architectural elements of truth.</p>
+          </div>
+          <audio controls class="w-full max-w-xl focus:outline-none">
+            <source src="https://docs.google.com/uc?export=download&id=12VxRoB3bBcNDKtP7isfnjnCfOzgQG7CJ" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+      </div>
+    </div>
+
+    <div class="reveal grain-card rounded-[2rem] p-6 md:p-8 border border-ibame-charcoal">
+      <div class="flex flex-col md:flex-row items-center gap-6">
+        <div class="w-32 h-32 shrink-0 bg-ibame-black rounded-xl overflow-hidden flex items-center justify-center border border-ibame-copper/10">
+          <span class="font-display italic text-4xl text-ibame-grey">II</span>
+        </div>
+        <div class="flex-grow space-y-3 text-center md:text-left w-full">
+          <div>
+            <span class="text-[9px] uppercase tracking-[0.25em] text-ibame-copper font-semibold block">Track 02</span>
+            <h3 class="font-display text-xl text-ibame-bone">Manuscript & Archive Synthesis</h3>
+            <p class="text-ibame-grey text-xs font-light mt-0.5">Secondary studio generation focusing on the raw author threads, letters to children, and generational legacy parameters.</p>
+          </div>
+          <audio controls class="w-full max-w-xl focus:outline-none">
+            <source src="https://docs.google.com/uc?export=download&id=1lJ-v-d2JOBTQBA6uhnvmodXmFQepnSEs" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+      </div>
     </div>
   </section>
 
-  <main class="px-6 py-12">
-    
-    <section id="part-1" class="scroll-mt-32">
-      <div class="reading-container mb-16 border-b border-ibame-charcoal pb-6">
-        <span class="text-xs uppercase tracking-widest text-ibame-copper">Part I</span>
-        <h2 class="font-display text-3xl text-ibame-bone mt-1">The Awakening Manuscript</h2>
+  <main>
+    <section id="contents" class="px-6 py-4 scroll-mt-24">
+      <div class="reading-container bg-ibame-charcoal p-6 md:p-8 rounded-2xl border border-ibame-copper/10">
+        <h2 class="font-display text-xl text-ibame-bone mb-4 border-b border-ibame-copper/20 pb-2">Table of Contents</h2>
+        <ul class="space-y-3 font-sans font-light text-sm text-ibame-grey tracking-wide">
+          <li><a href="#chapter-1" class="hover:text-ibame-copper transition-colors">I. The Moment Everything Changed</a></li>
+          <li><a href="#chapter-2" class="hover:text-ibame-copper transition-colors">II. A Father's Essence</a></li>
+        </ul>
       </div>
-
-      <article class="reading-container mb-24 reveal">
-        <header class="mb-6">
-          <h3 class="font-display text-2xl text-ibame-bone italic">1. The Moment Everything Changed</h3>
-        </header>
-        <div class="chapter-text">
-          <p>I did not know the true meaning of love until my children looked at me. Before them, I believed I understood life. I thought strength meant independence and wisdom meant knowledge. Then they arrived, and love stopped being a concept. It became a responsibility carried in the body. The man I had been was not enough for what fatherhood required.</p>
-          <p>Fatherhood did not merely add new duties. It reorganized meaning itself. Time changed shape. Decision-making changed scale. Every careless habit suddenly had consequences extending beyond me. A father is born in the private recognition that from this moment onward, comfort cannot remain the center of his life.</p>
-        </div>
-      </article>
-
-      <article class="reading-container mb-24 reveal">
-        <header class="mb-6">
-          <h3 class="font-display text-2xl text-ibame-bone italic">2. A Father's Essence</h3>
-        </header>
-        <div class="chapter-text">
-          <p>A father's essence is not perfection. It is presence. It is the willingness to remain morally available when life becomes difficult. It is constancy more than display. The world often notices fathers only in failure or in spectacle. But a child learns fatherhood from something quieter: tone, rhythm, reliability, and the invisible architecture of safety.</p>
-        </div>
-      </article>
     </section>
 
-    <div class="carved-rule"></div>
-
-    <section id="part-2" class="scroll-mt-32">
-      <div class="reading-container mb-16 border-b border-ibame-charcoal pb-6">
-        <span class="text-xs uppercase tracking-widest text-ibame-copper">Part II</span>
-        <h2 class="font-display text-3xl text-ibame-bone mt-1">Letters & Legacy</h2>
-      </div>
-
-      <article class="reading-container mb-24 reveal">
-        <header class="mb-6">
-          <h3 class="font-display text-2xl text-ibame-bone italic">Letters to Selene & Phoenix</h3>
+    <section class="px-6 py-12">
+      
+      <article id="chapter-1" class="reading-container mb-24 scroll-mt-32">
+        <header class="mb-8 text-center">
+          <span class="block text-xs uppercase tracking-[0.2em] text-ibame-copper mb-2">Chapter I</span>
+          <h2 class="font-display text-3xl text-ibame-bone">The Moment Everything Changed</h2>
         </header>
-        <div class="chapter-text">
-          <p class="italic text-ibame-grey pl-4 border-l border-ibame-copper/40">"My moon, may you never confuse softness with weakness. May your discernment stay sharp without hardening your heart. The world may reward noise, but depth remains a rarer strength."</p>
-          <p class="italic text-ibame-grey pl-4 border-l border-ibame-copper/40 mt-6">"My fire, may you understand early that self-control is greater than force. Muscles may command attention, but character determines destiny. Protect what is weaker than you, including tenderness."</p>
-          <p class="mt-8">Legacy is not ownership. It is stewardship. It is the decision to leave the world cleaner, wiser, and kinder for your existence. A father cannot control the whole road his children will walk. He can only try to send them into the world carrying more honesty than fear, more integrity than confusion, and more self-respect than dependence.</p>
+        
+        <div class="chapter-text text-base md:text-lg leading-relaxed text-ibame-bone/80 font-light space-y-6">
+          <p>Before my children were born, I believed I understood life. I thought strength meant independence and wisdom meant knowledge. Then they arrived, and love stopped being a concept. It became a responsibility carried in the body. The man I had been was not enough for what fatherhood required.</p>
+          <p>Fatherhood did not merely add new duties. It reorganized meaning itself. Time changed shape. Decision-making changed scale. Every careless habit suddenly had consequences extending beyond me.</p>
         </div>
       </article>
-    </section>
 
+      <div class="carved-rule"></div>
+
+      <article id="chapter-2" class="reading-container mb-24 scroll-mt-32">
+        <header class="mb-8 text-center">
+          <span class="block text-xs uppercase tracking-[0.2em] text-ibame-copper mb-2">Chapter II</span>
+          <h2 class="font-display text-3xl text-ibame-bone">A Father's Essence</h2>
+        </header>
+        
+        <div class="chapter-text text-base md:text-lg leading-relaxed text-ibame-bone/80 font-light space-y-6">
+          <p>A father's essence is not perfection. It is presence. It is the willingness to remain morally available when life becomes difficult. It is constancy more than display.</p>
+          <p>The world often notices fathers only in failure or in spectacle. But a child learns fatherhood from something quieter: tone, rhythm, reliability, and the invisible architecture of safety.</p>
+        </div>
+      </article>
+
+    </section>
   </main>
 
   <footer class="border-t border-ibame-charcoal px-6 py-12 text-center space-y-2 text-xs font-light text-ibame-grey">
@@ -186,7 +190,7 @@
       'use strict';
       const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
-      }, { threshold: 0.05 });
+      }, { threshold: 0.1 });
       document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     })();
   </script>
