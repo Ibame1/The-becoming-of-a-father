@@ -6,6 +6,15 @@
 <title>The Becoming of a Father | Interactive Sourcebook</title>
 <meta name="description" content="Reflections on Love, Responsibility, and Legacy by Fortunat Bolangembe — Sourcebook Archive." />
 <meta name="theme-color" content="#1b2230" />
+
+<!-- Open Graph / link preview support -->
+<meta property="og:title" content="The Becoming of a Father" />
+<meta property="og:description" content="Reflections on Love, Responsibility, and Legacy — Fortunat Bolangembe" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%231b2230' stroke='%23c9a35d' stroke-width='4'/%3E%3Ctext x='50' y='62' font-size='40' text-anchor='middle' fill='%23c9a35d' font-family='Georgia,serif'%3EFB%3C/text%3E%3C/svg%3E" />
+
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -39,12 +48,64 @@
   html { scroll-behavior: smooth; }
   .reveal { opacity: 0; transform: translateY(16px); transition: all 0.7s cubic-bezier(.22,1,.36,1); }
   .reveal.active { opacity: 1; transform: translateY(0); }
+
   /* Dark-theme optimized native audio controls */
   audio { filter: invert(0.9) hue-rotate(180deg); width: 100%; }
   video { border-radius: 0.5rem; border: 1px solid rgba(243,234,215,0.14); background: #000; width: 100%; }
+
+  /* Accessible focus states */
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid #c9a35d;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Reading progress bar */
+  #progressBar {
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, #c9a35d, #b5562f);
+    transition: width 0.1s linear;
+  }
+
+  /* Active nav link */
+  .nav-link.active { color: #c9a35d; }
+
+  /* Scroll-to-top button */
+  #scrollTopBtn {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(8px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  #scrollTopBtn.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .now-playing-badge {
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+  .now-playing-badge.show {
+    opacity: 1;
+  }
+
+  /* Print styles: clean manuscript output, no dark bg / media */
+  @media print {
+    header, #audio, #visuals, footer, #scrollTopBtn, #progressBarWrap { display: none !important; }
+    body { background: #fff !important; color: #111 !important; }
+    .font-body, p, h1, h2, h3 { color: #111 !important; }
+    a { color: #111 !important; text-decoration: underline; }
+  }
 </style>
 </head>
 <body class="bg-ink text-paper font-body antialiased selection:bg-gold selection:text-ink-deep">
+
+<div id="progressBarWrap" class="fixed top-0 left-0 w-full z-[60]">
+  <div id="progressBar"></div>
+</div>
 
 <header class="sticky top-0 z-50 bg-ink-deep/95 backdrop-blur-md border-b border-line">
   <nav class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between font-ui">
@@ -52,14 +113,14 @@
       <span class="w-8 h-8 border border-gold rounded-full flex items-center justify-center font-display text-xs text-gold">FB</span>
       <span class="text-sm md:text-base text-paper hidden sm:block">The Becoming of a Father</span>
     </a>
-    
-    <button id="navToggle" class="md:hidden border border-line text-paper px-3 py-1.5 rounded text-sm focus:outline-none hover:bg-white/5 transition">Menu</button>
-    
+
+    <button id="navToggle" aria-expanded="false" aria-controls="navMenu" class="md:hidden border border-line text-paper px-3 py-1.5 rounded text-sm focus:outline-none hover:bg-white/5 transition">Menu</button>
+
     <div class="hidden md:flex gap-6 text-sm text-paper-dim font-medium tracking-wide">
-      <a href="#visuals" class="hover:text-gold transition">Visuals</a>
-      <a href="#audio" class="hover:text-gold transition">Audio</a>
-      <a href="#manuscript" class="hover:text-gold transition">Manuscript</a>
-      <a href="#archive" class="hover:text-gold transition">Download PDF</a>
+      <a href="#visuals" class="nav-link hover:text-gold transition" data-section="visuals">Visuals</a>
+      <a href="#audio" class="nav-link hover:text-gold transition" data-section="audio">Audio</a>
+      <a href="#manuscript" class="nav-link hover:text-gold transition" data-section="manuscript">Manuscript</a>
+      <a href="#archive" class="nav-link hover:text-gold transition" data-section="archive">Download PDF</a>
     </div>
   </nav>
 
@@ -91,37 +152,49 @@
   </div>
 
   <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-    <div class="reveal bg-white/5 border border-line p-4 rounded-xl">
-      <video controls preload="metadata" poster="">
+    <figure class="reveal bg-white/5 border border-line p-4 rounded-xl m-0">
+      <video controls preload="metadata" playsinline aria-label="The Becoming of a Father — core visual concept">
         <source src="./The_Becoming_of_a_Father%20(1).mp4" type="video/mp4">
+        Your browser doesn't support embedded video. <a class="text-gold underline" href="./The_Becoming_of_a_Father%20(1).mp4">Download the file</a> instead.
       </video>
-      <h3 class="font-display text-lg text-paper mt-4 mb-1">The Becoming of a Father</h3>
-      <p class="font-ui text-xs text-paper-dim">Core Visual Concept</p>
-    </div>
-    
-    <div class="reveal bg-white/5 border border-line p-4 rounded-xl">
-      <video controls preload="metadata">
+      <figcaption class="mt-4">
+        <h3 class="font-display text-lg text-paper mb-1">The Becoming of a Father</h3>
+        <p class="font-ui text-xs text-paper-dim">Core Visual Concept</p>
+      </figcaption>
+    </figure>
+
+    <figure class="reveal bg-white/5 border border-line p-4 rounded-xl m-0">
+      <video controls preload="metadata" playsinline aria-label="The Architecture of Consciousness — structural philosophy">
         <source src="./The_Architecture_of_Consciousness.mp4" type="video/mp4">
+        Your browser doesn't support embedded video. <a class="text-gold underline" href="./The_Architecture_of_Consciousness.mp4">Download the file</a> instead.
       </video>
-      <h3 class="font-display text-lg text-paper mt-4 mb-1">The Architecture of Consciousness</h3>
-      <p class="font-ui text-xs text-paper-dim">Structural Philosophy</p>
-    </div>
+      <figcaption class="mt-4">
+        <h3 class="font-display text-lg text-paper mb-1">The Architecture of Consciousness</h3>
+        <p class="font-ui text-xs text-paper-dim">Structural Philosophy</p>
+      </figcaption>
+    </figure>
 
-    <div class="reveal bg-white/5 border border-line p-4 rounded-xl">
-      <video controls preload="metadata">
+    <figure class="reveal bg-white/5 border border-line p-4 rounded-xl m-0">
+      <video controls preload="metadata" playsinline aria-label="The Nature of Seeing — perception and reality">
         <source src="./The_Nature_of_Seeing.mp4" type="video/mp4">
+        Your browser doesn't support embedded video. <a class="text-gold underline" href="./The_Nature_of_Seeing.mp4">Download the file</a> instead.
       </video>
-      <h3 class="font-display text-lg text-paper mt-4 mb-1">The Nature of Seeing</h3>
-      <p class="font-ui text-xs text-paper-dim">Perception and Reality</p>
-    </div>
+      <figcaption class="mt-4">
+        <h3 class="font-display text-lg text-paper mb-1">The Nature of Seeing</h3>
+        <p class="font-ui text-xs text-paper-dim">Perception and Reality</p>
+      </figcaption>
+    </figure>
 
-    <div class="reveal bg-white/5 border border-line p-4 rounded-xl">
-      <video controls preload="metadata">
+    <figure class="reveal bg-white/5 border border-line p-4 rounded-xl m-0">
+      <video controls preload="metadata" playsinline aria-label="Consciousness Architecture II — expanded visuals">
         <source src="./The_Consciousness_Architecture..mp4" type="video/mp4">
+        Your browser doesn't support embedded video. <a class="text-gold underline" href="./The_Consciousness_Architecture..mp4">Download the file</a> instead.
       </video>
-      <h3 class="font-display text-lg text-paper mt-4 mb-1">Consciousness Architecture II</h3>
-      <p class="font-ui text-xs text-paper-dim">Expanded Visuals</p>
-    </div>
+      <figcaption class="mt-4">
+        <h3 class="font-display text-lg text-paper mb-1">Consciousness Architecture II</h3>
+        <p class="font-ui text-xs text-paper-dim">Expanded Visuals</p>
+      </figcaption>
+    </figure>
   </div>
 </section>
 
@@ -133,14 +206,18 @@
     <h2 class="font-display font-semibold text-2xl md:text-3xl mt-2 text-paper">Immersive Audio Deep-Dives</h2>
   </div>
 
-  <div class="space-y-6">
+  <div class="space-y-6" id="audioList">
     <div class="border border-line rounded-xl p-5 md:p-6 bg-white/5 flex flex-col md:flex-row gap-6 items-start md:items-center reveal">
       <div class="w-14 h-14 shrink-0 rounded-lg bg-ink-deep border border-gold/30 flex items-center justify-center font-display italic text-xl text-gold">I</div>
       <div class="flex-1 w-full text-left">
-        <h3 class="font-display text-xl text-paper mb-1">Breaking Generational Trauma</h3>
+        <div class="flex items-center gap-3 mb-1">
+          <h3 class="font-display text-xl text-paper">Breaking Generational Trauma</h3>
+          <span class="now-playing-badge font-ui text-[10px] uppercase tracking-wider bg-gold/20 text-gold px-2 py-0.5 rounded-full">Now Playing</span>
+        </div>
         <p class="font-ui text-xs text-paper-dim mb-4 tracking-wide uppercase">Through Fatherhood</p>
-        <audio controls preload="none">
+        <audio controls preload="none" aria-label="Breaking Generational Trauma Through Fatherhood">
           <source src="./Breaking_generational_trauma_through_fatherhood_compressed_96k.mp3" type="audio/mpeg">
+          Your browser doesn't support embedded audio. <a class="text-gold underline" href="./Breaking_generational_trauma_through_fatherhood_compressed_96k.mp3">Download the file</a> instead.
         </audio>
       </div>
     </div>
@@ -148,10 +225,14 @@
     <div class="border border-line rounded-xl p-5 md:p-6 bg-white/5 flex flex-col md:flex-row gap-6 items-start md:items-center reveal">
       <div class="w-14 h-14 shrink-0 rounded-lg bg-ink-deep border border-gold/30 flex items-center justify-center font-display italic text-xl text-gold">II</div>
       <div class="flex-1 w-full text-left">
-        <h3 class="font-display text-xl text-paper mb-1">Engineering a Legacy with AI</h3>
+        <div class="flex items-center gap-3 mb-1">
+          <h3 class="font-display text-xl text-paper">Engineering a Legacy with AI</h3>
+          <span class="now-playing-badge font-ui text-[10px] uppercase tracking-wider bg-gold/20 text-gold px-2 py-0.5 rounded-full">Now Playing</span>
+        </div>
         <p class="font-ui text-xs text-paper-dim mb-4 tracking-wide uppercase">Fatherhood & Technology</p>
-        <audio controls preload="none">
+        <audio controls preload="none" aria-label="Engineering a Legacy with AI">
           <source src="./Engineering_a_fatherhood_legacy_with_AI_compressed_128k.mp3" type="audio/mpeg">
+          Your browser doesn't support embedded audio. <a class="text-gold underline" href="./Engineering_a_fatherhood_legacy_with_AI_compressed_128k.mp3">Download the file</a> instead.
         </audio>
       </div>
     </div>
@@ -159,10 +240,14 @@
     <div class="border border-line rounded-xl p-5 md:p-6 bg-white/5 flex flex-col md:flex-row gap-6 items-start md:items-center reveal">
       <div class="w-14 h-14 shrink-0 rounded-lg bg-ink-deep border border-gold/30 flex items-center justify-center font-display italic text-xl text-gold">III</div>
       <div class="flex-1 w-full text-left">
-        <h3 class="font-display text-xl text-paper mb-1">The Brutal Weight of Absolute Clarity</h3>
+        <div class="flex items-center gap-3 mb-1">
+          <h3 class="font-display text-xl text-paper">The Brutal Weight of Absolute Clarity</h3>
+          <span class="now-playing-badge font-ui text-[10px] uppercase tracking-wider bg-gold/20 text-gold px-2 py-0.5 rounded-full">Now Playing</span>
+        </div>
         <p class="font-ui text-xs text-paper-dim mb-4 tracking-wide uppercase">Philosophical Inquiry</p>
-        <audio controls preload="none">
+        <audio controls preload="none" aria-label="The Brutal Weight of Absolute Clarity">
           <source src="./The_Brutal_Weight_of_Absolute_Clarity_compressed_192k.mp3" type="audio/mpeg">
+          Your browser doesn't support embedded audio. <a class="text-gold underline" href="./The_Brutal_Weight_of_Absolute_Clarity_compressed_192k.mp3">Download the file</a> instead.
         </audio>
       </div>
     </div>
@@ -170,10 +255,14 @@
     <div class="border border-line rounded-xl p-5 md:p-6 bg-white/5 flex flex-col md:flex-row gap-6 items-start md:items-center reveal">
       <div class="w-14 h-14 shrink-0 rounded-lg bg-ink-deep border border-gold/30 flex items-center justify-center font-display italic text-xl text-gold">IV</div>
       <div class="flex-1 w-full text-left">
-        <h3 class="font-display text-xl text-paper mb-1">Shadow Work & Daily Rituals</h3>
+        <div class="flex items-center gap-3 mb-1">
+          <h3 class="font-display text-xl text-paper">Shadow Work & Daily Rituals</h3>
+          <span class="now-playing-badge font-ui text-[10px] uppercase tracking-wider bg-gold/20 text-gold px-2 py-0.5 rounded-full">Now Playing</span>
+        </div>
         <p class="font-ui text-xs text-paper-dim mb-4 tracking-wide uppercase">For Fathers</p>
-        <audio controls preload="none">
+        <audio controls preload="none" aria-label="Shadow Work and Daily Rituals for Dads">
           <source src="./Shadow_Work_or_Daily_Rituals_for_Dads.m4a" type="audio/mp4">
+          Your browser doesn't support embedded audio. <a class="text-gold underline" href="./Shadow_Work_or_Daily_Rituals_for_Dads.m4a">Download the file</a> instead.
         </audio>
       </div>
     </div>
@@ -202,12 +291,12 @@
     </div>
     <div class="font-body text-lg leading-relaxed text-paper-dim space-y-6">
       <p>Legacy is not ownership. It is stewardship. It is the heavy decision to leave the world cleaner, wiser, and kinder for your existence.</p>
-      
+
       <div class="pl-6 border-l-2 border-rust italic text-paper-dim my-8">
         <span class="block font-ui not-italic font-bold text-sm text-gold uppercase tracking-wider mb-2">To Selene (My Moon):</span>
         "May you never confuse softness with weakness. May your discernment stay sharp without hardening your heart."
       </div>
-      
+
       <div class="pl-6 border-l-2 border-rust italic text-paper-dim my-8">
         <span class="block font-ui not-italic font-bold text-sm text-gold uppercase tracking-wider mb-2">To Phoenix (My Fire):</span>
         "Understand early that self-control is greater than force. Muscles may command attention, but character determines destiny."
@@ -220,9 +309,9 @@
       <span class="font-ui tracking-[0.3em] uppercase text-xs text-gold mb-3 block">Complete Collection</span>
       <h3 class="font-display text-2xl md:text-3xl text-paper mb-4">Acquire the Full Sourcebook</h3>
       <p class="font-ui text-sm md:text-base text-paper-dim mb-8 leading-relaxed max-w-lg mx-auto">Download the complete 250-page NotebookLM Sourcebook PDF directly to your device. This master document contains the comprehensive archive of philosophies, letters, and the architecture of reality.</p>
-      
+
       <div class="flex justify-center font-ui">
-        <a href="./The_Becoming_of_a_Father_250p_NotebookLM_Sourcebook.pdf" target="_blank" download class="bg-gold text-ink-deep font-bold uppercase tracking-[0.1em] text-sm px-8 py-4 rounded shadow-lg hover:bg-paper transition-all transform hover:-translate-y-1 block w-full sm:w-auto">
+        <a href="./The_Becoming_of_a_Father_250p_NotebookLM_Sourcebook.pdf" target="_blank" rel="noopener" download class="bg-gold text-ink-deep font-bold uppercase tracking-[0.1em] text-sm px-8 py-4 rounded shadow-lg hover:bg-paper transition-all transform hover:-translate-y-1 block w-full sm:w-auto">
           Download PDF Archive
         </a>
       </div>
@@ -239,23 +328,37 @@
   </div>
 </footer>
 
+<button id="scrollTopBtn" aria-label="Back to top" class="fixed bottom-6 right-6 z-50 w-11 h-11 rounded-full bg-gold text-ink-deep flex items-center justify-center shadow-xl hover:bg-paper transition">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="w-5 h-5"><path d="M5 12l7-7 7 7M12 5v14"/></svg>
+</button>
+
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 
+  /* ---------- Mobile nav ---------- */
   const navToggle = document.getElementById('navToggle');
   const navMenu = document.getElementById('navMenu');
   const mobileLinks = document.querySelectorAll('.mobile-link');
 
-  navToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('hidden');
-  });
+  function closeMenu() {
+    navMenu.classList.add('hidden');
+    navToggle.setAttribute('aria-expanded', 'false');
+  }
+  function toggleMenu() {
+    const isHidden = navMenu.classList.toggle('hidden');
+    navToggle.setAttribute('aria-expanded', String(!isHidden));
+  }
 
-  mobileLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      navMenu.classList.add('hidden');
-    });
+  navToggle.addEventListener('click', (e) => { e.stopPropagation(); toggleMenu(); });
+  mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
+  document.addEventListener('click', (e) => {
+    if (!navMenu.classList.contains('hidden') && !navMenu.contains(e.target) && e.target !== navToggle) {
+      closeMenu();
+    }
   });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
 
+  /* ---------- Scroll reveal ---------- */
   (() => {
     'use strict';
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -268,6 +371,54 @@
     }, { threshold: 0.1 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   })();
+
+  /* ---------- Reading progress bar ---------- */
+  const progressBar = document.getElementById('progressBar');
+  function updateProgress() {
+    const doc = document.documentElement;
+    const scrollTop = doc.scrollTop || document.body.scrollTop;
+    const scrollHeight = (doc.scrollHeight || document.body.scrollHeight) - doc.clientHeight;
+    const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+    progressBar.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', updateProgress, { passive: true });
+  updateProgress();
+
+  /* ---------- Scroll-to-top button ---------- */
+  const scrollTopBtn = document.getElementById('scrollTopBtn');
+  window.addEventListener('scroll', () => {
+    scrollTopBtn.classList.toggle('visible', window.scrollY > 600);
+  }, { passive: true });
+  scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  /* ---------- Active nav-link highlighting ---------- */
+  const sections = ['visuals', 'audio', 'manuscript', 'archive'].map(id => document.getElementById(id)).filter(Boolean);
+  const navLinks = document.querySelectorAll('.nav-link');
+  const sectionObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const id = entry.target.id;
+      const link = document.querySelector('.nav-link[data-section="' + id + '"]');
+      if (!link) return;
+      if (entry.isIntersecting) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-40% 0px -50% 0px', threshold: 0 });
+  sections.forEach(s => sectionObserver.observe(s));
+
+  /* ---------- Single-audio playback + "Now Playing" badges ---------- */
+  const audioEls = Array.from(document.querySelectorAll('#audioList audio'));
+  audioEls.forEach(audio => {
+    const badge = audio.closest('.reveal').querySelector('.now-playing-badge');
+    audio.addEventListener('play', () => {
+      audioEls.forEach(other => { if (other !== audio) other.pause(); });
+      document.querySelectorAll('.now-playing-badge').forEach(b => b.classList.remove('show'));
+      if (badge) badge.classList.add('show');
+    });
+    audio.addEventListener('pause', () => { if (badge) badge.classList.remove('show'); });
+    audio.addEventListener('ended', () => { if (badge) badge.classList.remove('show'); });
+  });
 </script>
 </body>
 </html>
