@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
-<title>Read — The Becoming of a Father</title>
-<meta name="description" content="Reflections on Love, Responsibility, and Legacy by Fortunat Bolangembe — sourcebook edition." />
+<title>The Becoming of a Father | Interactive Sourcebook</title>
+<meta name="description" content="Reflections on Love, Responsibility, and Legacy by Fortunat Bolangembe — Sourcebook Archive." />
 <meta name="theme-color" content="#1b2230" />
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -40,176 +40,191 @@
   .reveal { opacity: 0; transform: translateY(16px); transition: all 0.7s cubic-bezier(.22,1,.36,1); }
   .reveal.active { opacity: 1; transform: translateY(0); }
   /* Dark-theme optimized native audio controls */
-  audio { filter: invert(0.9) hue-rotate(180deg); }
+  audio { filter: invert(0.9) hue-rotate(180deg); width: 100%; }
+  video { border-radius: 0.5rem; border: 1px solid rgba(243,234,215,0.14); background: #000; width: 100%; }
 </style>
 </head>
 <body class="bg-ink text-paper font-body antialiased selection:bg-gold selection:text-ink-deep">
 
 <header class="sticky top-0 z-50 bg-ink-deep/95 backdrop-blur-md border-b border-line">
   <nav class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between font-ui">
-    <a href="#contents" class="flex items-center gap-3 no-underline font-semibold">
+    <a href="#hero" class="flex items-center gap-3 no-underline font-semibold hover:opacity-80 transition">
       <span class="w-8 h-8 border border-gold rounded-full flex items-center justify-center font-display text-xs text-gold">FB</span>
-      <span class="text-sm md:text-base text-paper">The Becoming of a Father</span>
+      <span class="text-sm md:text-base text-paper hidden sm:block">The Becoming of a Father</span>
     </a>
     
     <button id="navToggle" class="md:hidden border border-line text-paper px-3 py-1.5 rounded text-sm focus:outline-none hover:bg-white/5 transition">Menu</button>
     
-    <div class="hidden md:flex gap-6 text-sm text-paper-dim">
-      <a href="#audio" class="hover:text-paper transition">Audio</a>
-      <a href="#contents" class="hover:text-paper transition">Map</a>
-      <a href="#part-1" class="hover:text-paper transition">Read</a>
-      <a href="#acquisition" class="hover:text-paper transition">Acquire</a>
+    <div class="hidden md:flex gap-6 text-sm text-paper-dim font-medium tracking-wide">
+      <a href="#visuals" class="hover:text-gold transition">Visuals</a>
+      <a href="#audio" class="hover:text-gold transition">Audio</a>
+      <a href="#manuscript" class="hover:text-gold transition">Manuscript</a>
+      <a href="#archive" class="hover:text-gold transition">Download PDF</a>
     </div>
   </nav>
 
   <div id="navMenu" class="hidden md:hidden border-t border-line bg-ink-deep font-ui text-sm shadow-2xl">
     <div class="flex flex-col px-4 py-2 space-y-1">
-      <a href="#audio" class="block py-3 border-b border-line/50 text-paper-dim hover:text-paper mobile-link">Studio Audio</a>
-      <a href="#contents" class="block py-3 border-b border-line/50 text-paper-dim hover:text-paper mobile-link">Manuscript Map</a>
-      <a href="#part-1" class="block py-3 border-b border-line/50 text-paper-dim hover:text-paper mobile-link">Read Book</a>
-      <a href="#acquisition" class="block py-3 text-paper-dim hover:text-paper mobile-link">Acquire Edition</a>
+      <a href="#visuals" class="block py-3 border-b border-line/50 text-paper-dim mobile-link">Visual Archives</a>
+      <a href="#audio" class="block py-3 border-b border-line/50 text-paper-dim mobile-link">Studio Audio</a>
+      <a href="#manuscript" class="block py-3 border-b border-line/50 text-paper-dim mobile-link">Manuscript Map</a>
+      <a href="#archive" class="block py-3 text-gold font-semibold mobile-link">Download PDF Archive</a>
     </div>
   </div>
 </header>
 
-<section class="py-16 md:py-24 px-4 text-center text-paper" style="background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(201,163,93,0.10), transparent);">
+<section id="hero" class="py-16 md:py-24 px-4 text-center text-paper" style="background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(201,163,93,0.10), transparent);">
   <div class="max-w-3xl mx-auto">
-    <span class="font-ui tracking-[0.3em] uppercase text-xs text-gold mb-4 block">Sourcebook Edition Archive</span>
+    <span class="font-ui tracking-[0.3em] uppercase text-xs text-gold mb-4 block">Interactive Sourcebook Archive</span>
     <h1 class="font-display font-bold text-4xl md:text-6xl leading-tight mb-4">The Becoming of a Father</h1>
     <p class="font-display italic text-lg md:text-xl text-paper-dim mb-6">Reflections on Love, Responsibility, and Legacy</p>
     <p class="font-ui tracking-[0.2em] uppercase text-xs text-gold mt-8">Fortunat Bolangembe</p>
   </div>
 </section>
 
-<div class="h-px w-full max-w-xs mx-auto my-10" style="background:linear-gradient(90deg, transparent, #c9a35d 20%, #c9a35d 80%, transparent); opacity:0.4;"></div>
+<div class="h-px w-full max-w-xs mx-auto my-6" style="background:linear-gradient(90deg, transparent, #c9a35d 20%, #c9a35d 80%, transparent); opacity:0.4;"></div>
 
-<section id="audio" class="px-4 py-8 max-w-4xl mx-auto scroll-mt-24">
-  <div class="text-center md:text-left mb-8">
-    <span class="font-ui tracking-[0.25em] uppercase text-xs text-gold opacity-80 block">Studio Productions</span>
-    <h2 class="font-display font-semibold text-2xl md:text-3xl mt-2 text-paper">NotebookLM Audio Overviews</h2>
+<section id="visuals" class="px-4 py-12 max-w-5xl mx-auto scroll-mt-20">
+  <div class="text-center mb-10">
+    <span class="font-ui tracking-[0.25em] uppercase text-xs text-gold opacity-80 block">Cinematic Concepts</span>
+    <h2 class="font-display font-semibold text-2xl md:text-3xl mt-2 text-paper">Visual Archives</h2>
   </div>
 
-  <div class="mb-8 p-4 rounded-lg bg-rust/10 border border-rust text-paper text-sm font-ui leading-relaxed">
-    <strong class="font-bold text-rust">⚠️ Device Audio Alert:</strong> Apple iOS (Safari) and many mobile browsers inherently block audio playback streams linked directly to Google Drive. For uninterrupted playback on your phone, download the audio elements to your computer and host the files directly in your GitHub folder.
-  </div>
-
-  <div class="border border-line rounded-xl p-6 bg-white/5 mb-6 flex flex-col md:flex-row gap-6 items-start md:items-center reveal">
-    <div class="w-16 h-16 shrink-0 rounded-lg bg-ink-deep border border-line flex items-center justify-center font-display italic text-2xl text-gold">I</div>
-    <div class="flex-1 w-full text-center md:text-left">
-      <span class="font-ui text-[10px] tracking-[0.2em] uppercase text-gold block mb-1">Track 01</span>
-      <h3 class="font-display text-xl text-paper mb-2">Deep-Dive Audio Presentation</h3>
-      <p class="font-ui text-sm text-paper-dim mb-4 leading-relaxed">An intricate conceptual audio conversation analyzing identity transitions, existential reality shifting, and the heavy burden of truth.</p>
-      <audio controls preload="none" class="w-full max-w-xl md:mx-0 mx-auto">
-        <source src="https://docs.google.com/uc?export=download&amp;id=12VxRoB3bBcNDKtP7isfnjnCfOzgQG7CJ" type="audio/mpeg">
-      </audio>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div class="reveal bg-white/5 border border-line p-4 rounded-xl">
+      <video controls preload="metadata" poster="">
+        <source src="./The_Becoming_of_a_Father%20(1).mp4" type="video/mp4">
+      </video>
+      <h3 class="font-display text-lg text-paper mt-4 mb-1">The Becoming of a Father</h3>
+      <p class="font-ui text-xs text-paper-dim">Core Visual Concept</p>
     </div>
-  </div>
+    
+    <div class="reveal bg-white/5 border border-line p-4 rounded-xl">
+      <video controls preload="metadata">
+        <source src="./The_Architecture_of_Consciousness.mp4" type="video/mp4">
+      </video>
+      <h3 class="font-display text-lg text-paper mt-4 mb-1">The Architecture of Consciousness</h3>
+      <p class="font-ui text-xs text-paper-dim">Structural Philosophy</p>
+    </div>
 
-  <div class="border border-line rounded-xl p-6 bg-white/5 mb-6 flex flex-col md:flex-row gap-6 items-start md:items-center reveal">
-    <div class="w-16 h-16 shrink-0 rounded-lg bg-ink-deep border border-line flex items-center justify-center font-display italic text-2xl text-gold">II</div>
-    <div class="flex-1 w-full text-center md:text-left">
-      <span class="font-ui text-[10px] tracking-[0.2em] uppercase text-gold block mb-1">Track 02</span>
-      <h3 class="font-display text-xl text-paper mb-2">Manuscript &amp; Archive Synthesis</h3>
-      <p class="font-ui text-sm text-paper-dim mb-4 leading-relaxed">A second digital session parsing author threads, dedicated letters to children, and parameters of ancestral stewardship.</p>
-      <audio controls preload="none" class="w-full max-w-xl md:mx-0 mx-auto">
-        <source src="https://docs.google.com/uc?export=download&amp;id=1lJ-v-d2JOBTQBA6uhnvmodXmFQepnSEs" type="audio/mpeg">
-      </audio>
+    <div class="reveal bg-white/5 border border-line p-4 rounded-xl">
+      <video controls preload="metadata">
+        <source src="./The_Nature_of_Seeing.mp4" type="video/mp4">
+      </video>
+      <h3 class="font-display text-lg text-paper mt-4 mb-1">The Nature of Seeing</h3>
+      <p class="font-ui text-xs text-paper-dim">Perception and Reality</p>
+    </div>
+
+    <div class="reveal bg-white/5 border border-line p-4 rounded-xl">
+      <video controls preload="metadata">
+        <source src="./The_Consciousness_Architecture..mp4" type="video/mp4">
+      </video>
+      <h3 class="font-display text-lg text-paper mt-4 mb-1">Consciousness Architecture II</h3>
+      <p class="font-ui text-xs text-paper-dim">Expanded Visuals</p>
     </div>
   </div>
 </section>
 
-<div class="h-px w-full max-w-xs mx-auto my-10" style="background:linear-gradient(90deg, transparent, #c9a35d 20%, #c9a35d 80%, transparent); opacity:0.4;"></div>
+<div class="h-px w-full max-w-xs mx-auto my-10" style="background:linear-gradient(90deg, transparent, #c9a35d 20%, #c9a35d 80%, transparent); opacity:0.2;"></div>
 
-<nav id="contents" class="px-4 py-8 scroll-mt-24">
-  <div class="max-w-2xl mx-auto bg-white/5 border border-line rounded-xl p-6 md:p-8">
-    <h2 class="font-display text-xl border-b border-line pb-3 mb-4 text-paper">Sourcebook Content Map</h2>
-    <ul class="space-y-1 font-ui text-sm">
-      <li class="border-b border-line/50"><a href="#part-1" class="block py-2 text-paper-dim hover:text-gold transition">Part I — The Awakening Manuscript</a></li>
-      <li class="border-b border-line/50"><a href="#part-2" class="block py-2 text-paper-dim hover:text-gold transition">Part II — Letters, Vows, and Fatherhood Language</a></li>
-      <li class="border-b border-line/50"><a href="#part-3" class="block py-2 text-paper-dim hover:text-gold transition">Part III — Principles, Practices, and the Standing Father</a></li>
-      <li><a href="#part-4" class="block py-2 text-paper-dim hover:text-gold transition">Part IV — Shadow, Stoicism, Individuation, and the Inner War</a></li>
-    </ul>
+<section id="audio" class="px-4 py-12 max-w-4xl mx-auto scroll-mt-20">
+  <div class="text-center md:text-left mb-10">
+    <span class="font-ui tracking-[0.25em] uppercase text-xs text-gold opacity-80 block">Studio Productions</span>
+    <h2 class="font-display font-semibold text-2xl md:text-3xl mt-2 text-paper">Immersive Audio Deep-Dives</h2>
   </div>
-</nav>
 
-<main class="px-4 py-8">
+  <div class="space-y-6">
+    <div class="border border-line rounded-xl p-5 md:p-6 bg-white/5 flex flex-col md:flex-row gap-6 items-start md:items-center reveal">
+      <div class="w-14 h-14 shrink-0 rounded-lg bg-ink-deep border border-gold/30 flex items-center justify-center font-display italic text-xl text-gold">I</div>
+      <div class="flex-1 w-full text-left">
+        <h3 class="font-display text-xl text-paper mb-1">Breaking Generational Trauma</h3>
+        <p class="font-ui text-xs text-paper-dim mb-4 tracking-wide uppercase">Through Fatherhood</p>
+        <audio controls preload="none">
+          <source src="./Breaking_generational_trauma_through_fatherhood_compressed_96k.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+    </div>
 
-  <section id="part-1" class="max-w-3xl mx-auto mb-24 scroll-mt-24">
-    <div class="border-b border-line pb-4 mb-8">
+    <div class="border border-line rounded-xl p-5 md:p-6 bg-white/5 flex flex-col md:flex-row gap-6 items-start md:items-center reveal">
+      <div class="w-14 h-14 shrink-0 rounded-lg bg-ink-deep border border-gold/30 flex items-center justify-center font-display italic text-xl text-gold">II</div>
+      <div class="flex-1 w-full text-left">
+        <h3 class="font-display text-xl text-paper mb-1">Engineering a Legacy with AI</h3>
+        <p class="font-ui text-xs text-paper-dim mb-4 tracking-wide uppercase">Fatherhood & Technology</p>
+        <audio controls preload="none">
+          <source src="./Engineering_a_fatherhood_legacy_with_AI_compressed_128k.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+    </div>
+
+    <div class="border border-line rounded-xl p-5 md:p-6 bg-white/5 flex flex-col md:flex-row gap-6 items-start md:items-center reveal">
+      <div class="w-14 h-14 shrink-0 rounded-lg bg-ink-deep border border-gold/30 flex items-center justify-center font-display italic text-xl text-gold">III</div>
+      <div class="flex-1 w-full text-left">
+        <h3 class="font-display text-xl text-paper mb-1">The Brutal Weight of Absolute Clarity</h3>
+        <p class="font-ui text-xs text-paper-dim mb-4 tracking-wide uppercase">Philosophical Inquiry</p>
+        <audio controls preload="none">
+          <source src="./The_Brutal_Weight_of_Absolute_Clarity_compressed_192k.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+    </div>
+
+    <div class="border border-line rounded-xl p-5 md:p-6 bg-white/5 flex flex-col md:flex-row gap-6 items-start md:items-center reveal">
+      <div class="w-14 h-14 shrink-0 rounded-lg bg-ink-deep border border-gold/30 flex items-center justify-center font-display italic text-xl text-gold">IV</div>
+      <div class="flex-1 w-full text-left">
+        <h3 class="font-display text-xl text-paper mb-1">Shadow Work & Daily Rituals</h3>
+        <p class="font-ui text-xs text-paper-dim mb-4 tracking-wide uppercase">For Fathers</p>
+        <audio controls preload="none">
+          <source src="./Shadow_Work_or_Daily_Rituals_for_Dads.m4a" type="audio/mp4">
+        </audio>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="h-px w-full max-w-xs mx-auto my-10" style="background:linear-gradient(90deg, transparent, #c9a35d 20%, #c9a35d 80%, transparent); opacity:0.2;"></div>
+
+<main id="manuscript" class="px-4 py-8 scroll-mt-20">
+
+  <section class="max-w-3xl mx-auto mb-20">
+    <div class="border-b border-line pb-4 mb-8 text-center md:text-left">
       <span class="font-ui text-xs uppercase tracking-[0.2em] text-gold">Part I</span>
       <h2 class="font-display text-3xl mt-2 text-paper">The Awakening Manuscript</h2>
     </div>
     <div class="font-body text-lg leading-relaxed text-paper-dim space-y-6">
-      <p class="font-display italic text-xl md:text-2xl text-gold border-l-2 border-gold pl-4 py-1 my-8">"I did not know the true meaning of love until my children looked at me. It stopped being an abstract concept and became a responsibility carried heavily in the physical body."</p>
-      <p>Before my children were born, I believed I understood life. I thought strength meant independence and wisdom meant knowledge. The man I had been was not enough for what fatherhood required. Fatherhood did not merely add new duties. It reorganized meaning itself. Time changed shape; decision-making changed scale. Every careless habit suddenly had consequences extending far beyond me. In fatherhood, the abstract always becomes concrete.</p>
-      <p>A father is not born in the hospital room alone. He is born in the private recognition that from this moment onward, his personal comfort cannot remain the center of his life. That is where becoming begins. A father's essence is not perfection; it is presence. It is the willingness to remain morally available when life becomes difficult. It is constancy more than outward display.</p>
-      <p>Pain has deep gravity. Separation proved that to me. There were mornings when my heart raced before thought, as if the body had already diagnosed the absence. If my pain had a shape, it would be a black hole—not only complete darkness, but a force dense enough to bend every single thought around its horizon. The danger of such pain is how easily suffering tries to convert itself into an identity.</p>
+      <p class="font-display italic text-xl md:text-2xl text-gold border-l-2 border-gold pl-5 py-2 my-8">"I did not know the true meaning of love until my children looked at me. It stopped being an abstract concept and became a responsibility carried heavily in the physical body."</p>
+      <p>Before my children were born, I believed I understood life. I thought strength meant independence and wisdom meant knowledge. The man I had been was not enough for what fatherhood required. Fatherhood did not merely add new duties. It reorganized meaning itself.</p>
     </div>
   </section>
 
-  <div class="h-px w-full max-w-xs mx-auto my-16" style="background:linear-gradient(90deg, transparent, #c9a35d 20%, #c9a35d 80%, transparent); opacity:0.4;"></div>
-
-  <section id="part-2" class="max-w-3xl mx-auto mb-24 scroll-mt-24">
-    <div class="border-b border-line pb-4 mb-8">
+  <section class="max-w-3xl mx-auto mb-20">
+    <div class="border-b border-line pb-4 mb-8 text-center md:text-left">
       <span class="font-ui text-xs uppercase tracking-[0.2em] text-gold">Part II</span>
-      <h2 class="font-display text-3xl mt-2 text-paper">Letters, Vows, and Fatherhood Language</h2>
+      <h2 class="font-display text-3xl mt-2 text-paper">Letters & Fatherhood Language</h2>
     </div>
     <div class="font-body text-lg leading-relaxed text-paper-dim space-y-6">
-      <p>A father cannot control the whole road his children will walk. He can only try to send them into the world carrying more honesty than fear, more integrity than confusion, and more self-respect than dependence. Legacy is not ownership. It is stewardship. It is the heavy decision to leave the world cleaner, wiser, and kinder for your existence.</p>
+      <p>Legacy is not ownership. It is stewardship. It is the heavy decision to leave the world cleaner, wiser, and kinder for your existence.</p>
       
-      <div class="pl-6 border-l-2 border-rust italic text-paper-dim my-8 space-y-2">
+      <div class="pl-6 border-l-2 border-rust italic text-paper-dim my-8">
         <span class="block font-ui not-italic font-bold text-sm text-gold uppercase tracking-wider mb-2">To Selene (My Moon):</span>
-        "May you never confuse softness with weakness. May your discernment stay sharp without hardening your heart. The world may reward noise, but depth remains a rarer strength."
+        "May you never confuse softness with weakness. May your discernment stay sharp without hardening your heart."
       </div>
       
-      <div class="pl-6 border-l-2 border-rust italic text-paper-dim my-8 space-y-2">
+      <div class="pl-6 border-l-2 border-rust italic text-paper-dim my-8">
         <span class="block font-ui not-italic font-bold text-sm text-gold uppercase tracking-wider mb-2">To Phoenix (My Fire):</span>
-        "May you understand early that self-control is greater than force. Muscles may command attention, but character determines destiny. Protect what is weaker than you, including tenderness."
-      </div>
-
-      <div class="pl-6 border-l-2 border-rust italic text-paper-dim my-8 space-y-2">
-        <span class="block font-ui not-italic font-bold text-sm text-gold uppercase tracking-wider mb-2">Unconditional Decree:</span>
-        "My children, I want you to know that your worth did not depend on my mood, my circumstances, or the conditions around us. You were loved before you understood language and beyond every ordinary word for love."
+        "Understand early that self-control is greater than force. Muscles may command attention, but character determines destiny."
       </div>
     </div>
   </section>
 
-  <div class="h-px w-full max-w-xs mx-auto my-16" style="background:linear-gradient(90deg, transparent, #c9a35d 20%, #c9a35d 80%, transparent); opacity:0.4;"></div>
-
-  <section id="part-3" class="max-w-3xl mx-auto mb-24 scroll-mt-24">
-    <div class="border-b border-line pb-4 mb-8">
-      <span class="font-ui text-xs uppercase tracking-[0.2em] text-gold">Part III</span>
-      <h2 class="font-display text-3xl mt-2 text-paper">Principles, Practices, and the Standing Father</h2>
-    </div>
-    <div class="font-body text-lg leading-relaxed text-paper-dim space-y-6">
-      <p><strong class="text-paper font-semibold">Character Before Image:</strong> A stable life cannot be built on image. Image depends entirely on witnesses. Character remains completely intact when the room is empty. A father learns not only by quick insight but by deliberate, painful rehearsal—through ordinary choices, corrected habits, and the absolute refusal to hand structural chaos down to the next generation.</p>
-      <p><strong class="text-paper font-semibold">Integrity as Alignment:</strong> Integrity is active alignment; it occurs when a father's internal thought, spoken speech, and physical action are close enough together that a child can look at the pattern and safely trust it.</p>
-      <p><strong class="text-paper font-semibold">Loyalty Without Blindness:</strong> Loyalty is not modern slavery. A father must possess the clarity to know the real difference between intentional patience and slow self-erasure. The patience an honorable person offers should never be mistaken for a blank check or permission to wound them indefinitely.</p>
-      <p><strong class="text-paper font-semibold">The Standing Father:</strong> Sometimes a father cannot even access the daily life he longs to protect. But standing is not the same as winning. To stand means to remain strictly aligned with structural duty when recognition completely disappears. It is a moral posture, separate from performance.</p>
-    </div>
-  </section>
-
-  <div class="h-px w-full max-w-xs mx-auto my-16" style="background:linear-gradient(90deg, transparent, #c9a35d 20%, #c9a35d 80%, transparent); opacity:0.4;"></div>
-
-  <section id="part-4" class="max-w-3xl mx-auto mb-24 scroll-mt-24">
-    <div class="border-b border-line pb-4 mb-8">
-      <span class="font-ui text-xs uppercase tracking-[0.2em] text-gold">Part IV</span>
-      <h2 class="font-display text-3xl mt-2 text-paper">Shadow, Stoicism, Individuation, and the Inner War</h2>
-    </div>
-    <div class="font-body text-lg leading-relaxed text-paper-dim space-y-6">
-      <p>The shadow is not the enemy. It is the unadmitted, hidden part of the self that keeps trying to illegally govern a man's life from below. In fatherhood, an unexamined shadow converts directly into an inherited household atmosphere. To become a father in the fullest sense is to actively refine the psychological instrument through which care reaches your family. What remains hidden will eventually bleed out in tone, impatience, fear, or profound confusion.</p>
-      <p>Stoicism is not emotional numbness or a cold heart. It is the strict discipline of separating what can be governed from what cannot, so a father's energy isn't wasted on panic or performance theater. Realization kills illusion. It does not politely ask permission; it simply and aggressively strips away the safe lies that emotion preferred to keep alive.</p>
-      <p class="font-display italic text-2xl md:text-3xl text-center text-gold mt-16 mb-4 leading-tight">"Children do not belong to us. They pass through us. Our role is simple: protect them, guide them, love them, and leave the world better than we found it."</p>
-    </div>
-  </section>
-
-  <section id="acquisition" class="max-w-3xl mx-auto my-24 reveal scroll-mt-24">
-    <div class="bg-gold/5 border border-gold/50 rounded-2xl p-8 md:p-12 text-center">
-      <h3 class="font-display text-2xl md:text-3xl text-paper mb-4">Acquire the Trade Edition Archive</h3>
-      <p class="font-ui text-sm md:text-base text-paper-dim mb-8 leading-relaxed max-w-lg mx-auto">The complete 250-page Sourcebook/Manuscript Hybrid is archived safely within the IBAME Studio creative ecosystem. You can request digital file delivery or inquire about artisanal physical printings from our Montréal workshop.</p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center font-ui">
-        <a href="mailto:Fortunatb@yahoo.fr?subject=Manuscript%20Request%20%7C%20The%20Becoming%20of%20a%20Father" class="bg-gold text-ink-deep font-semibold uppercase tracking-[0.1em] text-xs px-6 py-4 rounded hover:bg-paper transition-colors block">Request Access</a>
-        <a href="#audio" class="border border-line text-paper font-semibold uppercase tracking-[0.1em] text-xs px-6 py-4 rounded hover:bg-white/5 transition-colors block">Listen to Overview</a>
+  <section id="archive" class="max-w-3xl mx-auto my-24 reveal scroll-mt-24">
+    <div class="bg-gold/5 border border-gold/40 rounded-2xl p-8 md:p-12 text-center shadow-2xl">
+      <span class="font-ui tracking-[0.3em] uppercase text-xs text-gold mb-3 block">Complete Collection</span>
+      <h3 class="font-display text-2xl md:text-3xl text-paper mb-4">Acquire the Full Sourcebook</h3>
+      <p class="font-ui text-sm md:text-base text-paper-dim mb-8 leading-relaxed max-w-lg mx-auto">Download the complete 250-page NotebookLM Sourcebook PDF directly to your device. This master document contains the comprehensive archive of philosophies, letters, and the architecture of reality.</p>
+      
+      <div class="flex justify-center font-ui">
+        <a href="./The_Becoming_of_a_Father_250p_NotebookLM_Sourcebook.pdf" target="_blank" download class="bg-gold text-ink-deep font-bold uppercase tracking-[0.1em] text-sm px-8 py-4 rounded shadow-lg hover:bg-paper transition-all transform hover:-translate-y-1 block w-full sm:w-auto">
+          Download PDF Archive
+        </a>
       </div>
     </div>
   </section>
@@ -225,10 +240,8 @@
 </footer>
 
 <script>
-  // Update year
   document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Mobile menu logic
   const navToggle = document.getElementById('navToggle');
   const navMenu = document.getElementById('navMenu');
   const mobileLinks = document.querySelectorAll('.mobile-link');
@@ -243,7 +256,6 @@
     });
   });
 
-  // Reveal animations
   (() => {
     'use strict';
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
